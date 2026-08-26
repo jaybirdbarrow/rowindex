@@ -617,8 +617,8 @@ body.notes .note{display:block}
 <section class="section" id="problems"><div class="wrap">
   <div class="shead"><span class="micro">The problems</span><h2>Six problems</h2></div>
   <div class="probgrid">
-    <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>18 seats · 3 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>18 seats · 2 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
+    <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
+    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
     <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>16 seats</span></h3><span class="cta">Read the brief →</span></span></span></a>
     <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>15 seats · 3 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
@@ -2093,8 +2093,6 @@ const BUCKETS=[
 ];
 const SEATED={
  1:{n:"Anthropic",line:"Frontier lab. The safety template the industry copied."},
- 2:{n:"METR",line:"The only outside team testing frontier models before release."},
- 19:{n:"Constellation",line:"The largest carbon-free power fleet in the country."},
  20:{n:"Elemental",line:"Funds the gap between a working prototype and a financed plant."},
  37:{n:"data.org",line:"Data science and AI for the people solving the hardest problems."},
  71:{n:"Center for Humane Tech",line:"Turned tech's insider critique into a mandate for platform accountability."},
@@ -2187,8 +2185,7 @@ const LINES=[
  {n:"One coherent rulebook",e:"Builders face one legible set of rules rather than fifty conflicting regimes.",c:4}
 ];
 const ROSTER=[
- {seat:"01",n:"Anthropic",t:"Company",line:"The Economic Index, the RSP template the industry copied, and interpretability research with no peer.",seated:true,go:"org-anthropic"},
- {seat:"02",n:"METR",t:"Nonprofit",line:"The only third party with pre-deployment access across the frontier labs.",seated:true}
+ {seat:"01",n:"Anthropic",t:"Company",line:"The Economic Index, the RSP template the industry copied, and interpretability research with no peer.",seated:true,go:"org-anthropic"}
 ];
 
 if(document.getElementById("lines")){
