@@ -1,0 +1,14 @@
+# This repo holds the DEPLOYED SITE ONLY.
+#
+# Netlify's publish directory is the repo root, so anything committed here is
+# publicly fetchable. The strategy docs, briefs, research CSVs, badge art and
+# superseded drafts all stay on disk but deliberately out of version control.
+#
+# Everything is ignored by default. To add a new file to the live site you MUST
+# unignore it explicitly below — otherwise it will silently never deploy.
+
+*
+
+!.gitignore
+!base.html
+!_redirects
