@@ -303,8 +303,9 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 
 /* ---- unified topbar (replaces portfolio nav) ---- */
 .unav{position:sticky;top:0;z-index:200;background:rgba(251,252,253,.93);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(13,27,42,.08);display:flex;align-items:center;gap:0;padding:0 32px;height:56px}
-.unav .mark{font-family:'Fraunces',serif;font-weight:300;font-size:22px;letter-spacing:-.01em;color:#0d1b2a;margin-right:28px;cursor:pointer;flex:0 0 auto}
-.unav .mark i{color:#3D8EC4;font-style:normal}
+.unav .mark{display:flex;align-items:center;margin-right:28px;cursor:pointer;flex:0 0 auto}
+.unav .mark img{height:18px;width:auto;display:block}
+@media(max-width:640px){.unav .mark{margin-right:14px}.unav .mark img{height:16px}}
 .unav-links{display:flex;gap:0;flex:1}
 .unav-links a,.unav-links button,#aboutNavBtn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:#5b6b7a;padding:10px 14px;cursor:pointer;position:relative;transition:color .15s;text-decoration:none}
 .unav-links a::after,.unav-links button::after,#aboutNavBtn::after{content:"";position:absolute;bottom:0;left:14px;right:14px;height:2px;background:#3D8EC4;transform:scaleX(0);transform-origin:left;transition:transform .2s}
@@ -553,16 +554,16 @@ body.notes .note{display:block}
 
 <!-- UNIFIED NAV -->
 <div class="unav">
-  <div class="mark" data-view="index">row<i>.</i></div>
+  <div class="mark" data-view="index"><img src="data:image/png;base64,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" alt="row" width="221" height="66"></div>
   <div class="unav-links">
     <button data-view="index" class="on">The Index</button>
-    <button id="probsToggle" class="probs-btn">The Problems</button>
+    <button id="probsToggle" class="probs-btn">The Arenas</button>
   </div>
   <button id="aboutNavBtn" data-view="about">About</button>
 </div>
 <div class="chapstrip" id="chapstrip">
   <div class="chapstrip-inner">
-    <span class="chapstrip-lab">Problems</span>
+    <span class="chapstrip-lab">Arenas</span>
     <button data-view="ai">AI</button>
     <button data-view="climate">Climate</button>
     <button data-view="democracy">Democracy</button>
@@ -615,14 +616,14 @@ body.notes .note{display:block}
 
 <!-- PROBLEMS -->
 <section class="section" id="problems"><div class="wrap">
-  <div class="shead"><span class="micro">The problems</span><h2>Six problems</h2></div>
+  <div class="shead"><span class="micro">The arenas</span><h2>Six arenas</h2></div>
   <div class="probgrid">
-    <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>18 seats · 1 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>16 seats</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>15 seats · 3 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
-    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>14 seats · 4 seated</span></h3><span class="cta">Read the brief →</span></span></span></a>
+    <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>3 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>4 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
   </div>
 </div></section>
 
@@ -649,12 +650,11 @@ body.notes .note{display:block}
 <section class="view" id="v-ai">
 <div class="cover tx-ai prob-cover">
     <div>
-      <div class="ch-label">Problem 01 of 06</div>
+      <div class="ch-label">Arena 01 of 06</div>
       <h1>AI</h1>
-      <div class="subline">The most capable technology ever built is being deployed faster than anyone can check it. The job is making sure someone can.</div>
+      <div class="subline">AI is moving faster than any technology before it, and it's already changing how people work, talk to each other, and think about what their lives are for. There's no precedent for regulating something that reaches this deep into daily life, this fast.</div>
       <div class="prob-meta">
-        <div><b>18</b> seats — largest allocation</div>
-        <div><b>3</b> seated</div>
+        <div><b>1</b> indexed</div>
         <div><b>5</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -669,9 +669,9 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">Three years into the fastest technology rollout in history, the rules are still being written mid-flight.</p>
-      <p>Washington ships frameworks and voluntary commitments. States pass their own laws faster than Congress can preempt them. The labs test themselves and publish the results, which is better than nothing and worse than oversight. And the systems keep getting more capable on a schedule set by exactly nobody in government.</p>
-      <p>The interesting work isn't happening where the noise is. It's evaluators getting pre-deployment access, insurers putting real prices on AI risk, and a small set of people making sure the ones writing the rules understand what they're regulating.</p>
+      <p class="lede">AI went from research project to global infrastructure in about three years, and the upside is already real: faster drug discovery, tutoring that adapts to one kid instead of thirty, code and analysis that used to take a team a week done in an afternoon. Nobody serious wants to slow that down for its own sake.</p>
+      <p>The same speed cuts the other way. The systems keep getting more capable before our institutions can fully digest them. The U.S. has leaned on voluntary commitments while individual states pass their own laws, and labs test their own systems and publish the results, which is better than nothing but not the independent oversight we need.</p>
+      <p>The technology moves fast. The rules don't keep up. That gap is what this arena is about: capturing the upside without losing control of the downside. Everything below is aimed at closing it.</p>
     </div>
 </div>
 
@@ -679,10 +679,62 @@ body.notes .note{display:block}
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
-    <div class="card" id="lines"></div>
+    <div class="card" style="padding:0;overflow:hidden">
+      <div class="linecard">
+      <div>
+        <div class="lname">Clear accountability</div>
+        <div class="lend">When an AI system causes harm, responsibility is clear and enforceable, through any venue that works.</div>
+      </div>
+      <div class="covwrap thin">
+        <div class="covlabel">Teams indexed</div>
+        <div class="covbar"><i style="width:0%"></i></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
+      </div>
+    </div><div class="linecard">
+      <div>
+        <div class="lname">No catastrophic misuse</div>
+        <div class="lend">No mass-harm event enabled by a frontier model, across biology, cyber, and critical infrastructure.</div>
+      </div>
+      <div class="covwrap thin">
+        <div class="covlabel">Teams indexed</div>
+        <div class="covbar"><i style="width:0%"></i></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
+      </div>
+    </div><div class="linecard">
+      <div>
+        <div class="lname">Benefits keep diffusing</div>
+        <div class="lend">Capability gains keep reaching the wider economy, and control does not concentrate in a few labs.</div>
+      </div>
+      <div class="covwrap thin">
+        <div class="covlabel">Teams indexed</div>
+        <div class="covbar"><i style="width:0%"></i></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
+      </div>
+    </div><div class="linecard">
+      <div>
+        <div class="lname">Capable oversight</div>
+        <div class="lend">Government can see and evaluate frontier systems, with the reporting, testing capacity, and technical staff that requires.</div>
+      </div>
+      <div class="covwrap thin">
+        <div class="covlabel">Teams indexed</div>
+        <div class="covbar"><i style="width:0%"></i></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
+      </div>
+    </div><div class="linecard">
+      <div>
+        <div class="lname">One coherent rulebook</div>
+        <div class="lend">Builders face one legible set of rules rather than fifty conflicting regimes.</div>
+      </div>
+      <div class="covwrap thin">
+        <div class="covlabel">Teams indexed</div>
+        <div class="covbar"><i style="width:0%"></i></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
+      </div>
+    </div>
+    </div>
 </div>
 
   <!-- band 3: who's on it -->
@@ -697,7 +749,7 @@ body.notes .note{display:block}
 
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026. When the read changes, the edition changes — and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -713,12 +765,11 @@ body.notes .note{display:block}
 
   <div class="cover tx-climate prob-cover">
     <div>
-      <div class="ch-label">Problem 02 of 06</div>
+      <div class="ch-label">Arena 02 of 06</div>
       <h1>Climate</h1>
-      <div class="subline">The energy system is the biggest infrastructure build in human history. It's moving faster than almost anyone expected — and it's being dismantled at the same time.</div>
+      <div class="subline">Climate conversations can miss the energy trilemma: energy has to be clean, reliable, and affordable at the same time, and pushing hard on one often costs you the other two. That tension is what makes this work harder than it looks from the outside.</div>
       <div class="prob-meta">
-        <div><b>18</b> seats</div>
-        <div><b>2</b> seated</div>
+        <div><b>1</b> indexed</div>
         <div><b>5</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -732,15 +783,15 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">More solar came online globally last year than all other energy sources combined. Clean electricity is now the cheapest electricity in most of the world.</p>
-      <p>Getting cheap power isn't the same as using it everywhere. The grid that connects your house to the sun was designed in 1960. Transmission lines take a decade to build. The interconnection queue has more clean energy waiting to connect than the entire current grid. And the OBBBA signed last July wiped out $211 billion in planned clean energy investment with a construction deadline that expires in 12 months.</p><p>The work is happening on five simultaneous tracks: get projects built before windows close, cut methane while the longer transition happens, pull carbon out of the air at scale, fix food systems that account for a third of global emissions, and do all of it without leaving lower-income households holding rising bills. None of these is optional. All of them are moving.</p>
+      <p class="lede">More solar came online globally last year than every other energy source combined, and clean electricity is now the cheapest electricity in most of the world. Building the clean power itself is going well, but wiring it into the grid gets less attention. Our infrastructure is built on oil and gas, and transitioning will take time and tough choices.</p>
+      <p>Reliable and affordable are lagging behind. Most of the grid carrying that power was built for a different era. Policy support has also gotten less predictable, which makes the multi-year bets this work requires harder to place.</p><p>Everything below is aimed at moving clean, reliable, and affordable closer together instead of trading one for another.</p>
     </div>
   </div>
 
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
@@ -750,9 +801,9 @@ body.notes .note{display:block}
         <div class="lend">Solar, wind, and storage projects clear permitting and get to construction before policy windows close.</div>
       </div>
       <div class="covwrap">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:11%"></i></div>
-        <div class="covn">1 of 18</div>
+        <div class="covn">1</div>
       </div>
     </div><div class="linecard">
       <div>
@@ -760,9 +811,9 @@ body.notes .note{display:block}
         <div class="lend">Power lines connect generation to demand, ending the interconnection backlog that stalls clean power.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -770,19 +821,19 @@ body.notes .note{display:block}
         <div class="lend">Agriculture and fossil fuel operations reduce near-term methane — 80 times more potent than CO2 in the short run, and the fastest lever on warming speed.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Carbon leaves the atmosphere</div>
-        <div class="lend">Removal methods — forests, direct air capture, enhanced weathering, biochar — work at scale and get cheaper fast enough to matter.</div>
+        <div class="lend">Removal methods (forests, direct air capture, enhanced weathering, biochar) work at scale and get cheaper faster.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -790,16 +841,16 @@ body.notes .note{display:block}
         <div class="lend">Agriculture and diet shifts reduce the third of global emissions that come from how we grow and eat food.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div>
     </div>
   </div>
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026. When the read changes, the edition changes — and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -812,12 +863,11 @@ body.notes .note{display:block}
 
   <div class="cover tx-democracy prob-cover">
     <div>
-      <div class="ch-label">Problem 03 of 06</div>
+      <div class="ch-label">Arena 03 of 06</div>
       <h1>Democracy</h1>
-      <div class="subline">More has changed about how American government works in the last two years than in the previous two decades. The people on this problem are doing two things at once: defending what exists and building what's more resilient.</div>
+      <div class="subline">This arena boils down to defending what exists today and building something more resilient.</div>
       <div class="prob-meta">
-        <div><b>18</b> seats</div>
-        <div><b>1</b> seated</div>
+        <div><b>1</b> indexed</div>
         <div><b>4</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -831,15 +881,14 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">Democracy is not a single problem. It's four problems that all have to hold at the same time.</p>
-      <p>Elections have to run. Power has to stay checked. Congress has to be able to act. And the money that shapes all three has to be visible. Lose any one of them and the others get harder. The people working this problem are running a fire department and a building code simultaneously — putting out what's burning right now while designing the system that doesn't catch fire as easily next time.</p><p>What's working: Democracy Forward has filed 100+ legal actions against the current administration and won in more than a dozen. The legal infrastructure is holding, mostly. What's missing is the narrative layer. There's no credible nonpartisan voice making the case for democratic norms to people who don't already believe in them. The 'rigged election' frame has been running for four years without a real challenger. That's the open seat.</p>
+      <p class="lede">We focus on a few critical mechanics: elections that produce results people accept, checks that keep any single branch from running unchecked, a Congress that can get legislation passed, and reining in money in politics.</p><p>Some of the work is protecting dynamics that already function: courts still ruling, agencies still enforcing the law, elections still getting certified.</p><p>The rest is building versions of those mechanics that hold up better under pressure than the current ones do.</p><p>The larger project is keeping a two-hundred-year-old system flexible enough to bend without breaking. Rules written for a slower era have to adapt to a faster one, and stay trustworthy along the way.</p>
     </div>
   </div>
 
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
@@ -849,19 +898,19 @@ body.notes .note{display:block}
         <div class="lend">Eligible voters can vote, rolls are accurate, results are certified and accepted — and the infrastructure protecting all three holds.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Checks on executive power hold</div>
-        <div class="lend">Courts and agencies enforce the law on overreach, funding freezes, civil service firings, and agency dismantlement.</div>
+        <div class="lend">Courts and agencies enforce the legal limits on executive power, no matter which administration is pushing against them.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -869,26 +918,26 @@ body.notes .note{display:block}
         <div class="lend">Procedures work, dysfunction has real and visible costs for the people causing it, and legislation can reach the floor.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Political money gets tracked</div>
-        <div class="lend">Dark money, campaign finance, and lobbying are in the public record — the first requirement for any accountability that follows.</div>
+        <div class="lend">Dark money, campaign finance and lobbying are in the public record.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 18 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div>
     </div>
   </div>
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026. When the read changes, the edition changes — and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -901,12 +950,11 @@ body.notes .note{display:block}
 
   <div class="cover tx-culture prob-cover">
     <div>
-      <div class="ch-label">Problem 04 of 06</div>
+      <div class="ch-label">Arena 04 of 06</div>
       <h1>Culture</h1>
-      <div class="subline">The anti-social century is real. Americans are more isolated than at any point since 1965, more polarized, and more convinced that the systems around them are broken. All three are connected.</div>
+      <div class="subline">This is a values arena: whether people get to live healthy, wealthy, rewarding lives, and whether the dynamics working against that get better or worse. The bigger test is whether we can digest fast technological and economic change in a way that leaves people more social and more fulfilled, not less.</div>
       <div class="prob-meta">
-        <div><b>16</b> seats</div>
-        <div><b>0</b> seated</div>
+        <div><b>0</b> indexed</div>
         <div><b>5</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -920,15 +968,15 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">Face-to-face socializing is down 20% since 2003. For young people it's down 40-50%. The share of Americans who have dinner with a friend has fallen by a third in a generation.</p>
-      <p>The downstream effects are everywhere: polarization, mental health crises, falling birth rates, political radicalization. When the middle layer of relationships disappears — the people you know well enough to disagree with but not well enough to cut off — the only relationships left are your inner circle and your broadcast feed. Both of those make tribalism worse.</p><p>The cultural problems that don't have a clean policy solution sit here too. Healthcare that bankrupts families. Childcare that makes having kids financially impossible for most people. A generation of young people who say they're not thriving and can't fully articulate why. These aren't separate problems. They're one broken system of how American life actually works — and this problem is for the people building the replacement.</p>
+      <p class="lede">The downstream effects of a disconnected, squeezed culture show up everywhere: polarization, mental health strain, falling birth rates, people who can't quite say why they're not thriving. I picked the dynamics on this page because they felt load-bearing: meaning if we solve one, the pressure on the rest eases up.</p>
+      <p>None of this has a clean legislative fix. Nobody passes a bill that makes people feel less alone or more hopeful about their kids' future. The people working this arena are building better versions of community, care, and meaning, brick by brick.</p><p>Everything below is that shortlist: the handful of things that, if they get better, make the rest of a good life more possible.</p>
     </div>
   </div>
 
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
@@ -938,56 +986,56 @@ body.notes .note{display:block}
         <div class="lend">In-person socializing stops its 20-year decline. Face-to-face time with people outside your household becomes normal again.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 16 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">The social fabric gets patched</div>
-        <div class="lend">Polarization falls as the relationships between people who disagree — not just people who agree — become common enough to matter in politics.</div>
+        <div class="lend">Political polarization falls, and it becomes cool to reach across ideological divides.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 16 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Childcare is affordable</div>
-        <div class="lend">Families can afford to have the kids they want. The cost of childcare is not the reason the answer is no.</div>
+        <div class="lend">Families can afford to have kids if they want them. The cost of childcare is no longer what stands in the way.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 16 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Healthcare doesn't bankrupt families</div>
-        <div class="lend">Drug prices are negotiated, hospital costs are transparent, and a medical event doesn't erase what a family built.</div>
+        <div class="lend">Drug prices are reasonable, hospital costs are transparent, and a medical event doesn't wreck a family's finances.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 16 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">People find meaning in their lives</div>
-        <div class="lend">The systems people depend on — care, community, work, institutions — are worth depending on. Life in America is worth showing up for.</div>
+        <div class="lend">The systems people depend on (care, community, work, institutions) ensure people are free to pursue their own version of a good life.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 16 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div>
     </div>
   </div>
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026. When the read changes, the edition changes — and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -1000,12 +1048,11 @@ body.notes .note{display:block}
 
   <div class="cover tx-information prob-cover">
     <div>
-      <div class="ch-label">Problem 05 of 06</div>
+      <div class="ch-label">Arena 05 of 06</div>
       <h1>Information</h1>
-      <div class="subline">Media trust is at a Gallup all-time low. The business model for journalism collapsed and the vacuum got filled by something optimized for engagement, not accuracy.</div>
+      <div class="subline">Media trust is at a Gallup all-time low. Social platforms and mainstream outlets alike are built to reward engagement over truth.</div>
       <div class="prob-meta">
-        <div><b>15</b> seats</div>
-        <div><b>3</b> seated</div>
+        <div><b>3</b> indexed</div>
         <div><b>4</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -1019,27 +1066,27 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">Twenty-eight percent of Americans trust the media. That's not because journalism got worse — it's because the infrastructure for shared facts got dismantled, one business model at a time.</p>
-      <p>The information problem is actually three problems that look like one. Local news collapsed when the ad model broke and Craigslist took the classifieds. Platform algorithms amplified outrage because it performs better than truth. And well-funded actors figured out that manufacturing confusion is easier than winning the argument. The organizations on this problem are working all three. Most are working one.</p><p>What's moving: states are funding local news at a level nobody expected — New York passed a $90 million journalism tax credit, Illinois has a $25 million program, California is advancing one. The rebuild is real. What's stalling: platform accountability. Meta ended fact-checking in April 2025. Stanford's election research infrastructure got dismantled. The information layer that holds democracy together is being built and demolished at the same time.</p>
+      <p class="lede">We've lost the infrastructure for a shared, baseline understanding of the world. A healthy information environment gives people reporting they can trust: local coverage of their own communities, platforms that surface what's true instead of just what's engaging, and enough transparency to tell a credible source from a manufactured one.</p>
+      <p>Most of that infrastructure doesn't exist yet. It's on us to rebuild it.</p><p>The organizations here are working all three. Most are working one.</p><p>The information layer that holds democracy together is being built and demolished at the same time.</p>
     </div>
   </div>
 
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
     <div class="card" style="padding:0;overflow:hidden">
       <div class="linecard">
       <div>
         <div class="lname">Local journalism survives</div>
-        <div class="lend">Communities have reporting that covers their own lives — not just national feeds, not just what's trending.</div>
+        <div class="lend">Communities have access to relevant, local reporting.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 15 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -1047,9 +1094,9 @@ body.notes .note{display:block}
         <div class="lend">False and harmful content faces design and legal consequences, not just content flags that change nothing.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 15 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -1057,9 +1104,9 @@ body.notes .note{display:block}
         <div class="lend">Addictive design that damages users is treated like other products that damage users — with liability and regulatory pressure.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 15 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div><div class="linecard">
       <div>
@@ -1067,16 +1114,16 @@ body.notes .note{display:block}
         <div class="lend">AI-generated content is labeled, deepfakes are identifiable, and media literacy is common enough to slow coordinated misinformation.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:0%"></i></div>
-        <div class="covn">0 of 15 <span class="thintag">first drops Sep 2026</span></div>
+        <div class="covn">0 <span class="thintag">coming soon</span></div>
       </div>
     </div>
     </div>
   </div>
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026. When the read changes, the edition changes — and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 · September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -1093,13 +1140,12 @@ body.notes .note{display:block}
 
   <div class="cover tx-method prob-cover">
     <div>
-      <div class="ch-label">Problem 06 of 06</div>
+      <div class="ch-label">Arena 06 of 06</div>
       <h1>Method</h1>
-      <div class="subline">Our institutions were built for a different century and it shows in every number. The teams in this problem are building the replacements.</div>
+      <div class="subline">Our institutions were built for a different century. The teams in this arena are building the replacements.</div>
       <div class="prob-meta">
-        <div><b>14</b> seats</div>
-        <div><b>4</b> seated</div>
-        <div><b>4</b> outcome lines</div>
+        <div><b>4</b> indexed</div>
+        <div><b>3</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 &middot; September 2026</div>
     </div>
@@ -1112,65 +1158,47 @@ body.notes .note{display:block}
       <div class="band-rule"></div>
     </div>
     <div class="prose">
-      <p class="lede">Seventy-seven percent of Americans have confidence in scientists. Nine percent have confidence in Congress. People still trust the experts. They have stopped trusting the institutions those experts work inside.</p>
+      <p class="lede">Government agencies, universities, and big foundations were built for a slower, more predictable century, and the pace of change is outrunning their ability to keep up.</p>
 
-      <p>Gallup's July 2026 read put average confidence across major institutions at 27 percent, under 30 for the fifth year running. The medical system sits at 28, down from 74 in 1977. Newspapers at 17, down from 51. Trust in the federal government to do the right thing is 17 percent against a high of 73 in 1958. That is a fifty-year slide in the machinery a society uses to get things done.</p>
-
-      <p>The slowness is measurable, which is the useful part. An environmental impact statement now averages about 4.5 years, up from 3.4 in 2008, and in 2022 only 14 of 83 were finished inside a year. California's high-speed rail was sold to voters in 2008 at $33 billion and due in 2020. The 2026 business plan puts Phase 1 at $126 billion with San Francisco to Los Angeles running in 2040, and the Merced to Bakersfield stretch alone now costs more than the entire line was supposed to.</p>
-
-      <p>Research has the same shape. Park, Leahey and Funk went through 45 million papers and 3.9 million patents in <i>Nature</i> in 2023 and found the work getting steadily less disruptive in every field. It takes more than eighteen times as many researchers to hold Moore's Law today as it did in the early 1970s. The median age at a scientist's first major NIH grant is 42. Philanthropy is the cleanest case only because its numbers are public: foundations hold close to $2 trillion, and Candid found the median payout sitting at exactly 5.0 percent for the fifth consecutive year, then wrote the conclusion out loud, that the IRS floor works as a ceiling.</p>
-
-      <p>What's moving: people have stopped waiting and started building. Arc Institute puts biologists on eight-year appointments with no grant writing. The UK's ARIA handed individual programme directors the authority to start and kill research portfolios, and had £514 million in live agreements by March 2026 on a staff of 86. Convergent Research has launched eight Focused Research Organizations and exported the template to Britain. Gates put an end date on itself, December 31 2045. Horizon pays technologists real salaries to go work in Congress, and more than 90 percent of them stay.</p>
-
-      <p>What's stalling: none of this is a safe bet. Arena BioWorks launched in January 2024 with $500 million and a permanent staff-scientist model, then shut down in November 2025. 18F, the government's own delivery team, was deleted at one in the morning on March 1 2025 and has no successor. Diagnosing a broken institution is the easy half.</p>
+      <p>That's the problem underneath all the others: how we solve problems matters as much as what we're solving. The people inside these institutions are usually excellent. What limits them is the shape of the institution itself, how it's funded, how fast it can move, and what it's legally allowed to do. The work here is inventing better shapes: new legal structures, new funding models, new ways to move money and talent, instead of defaulting to the traditional nonprofit playbook every time.</p>
     </div>
   </div>
 
   <div class="band">
     <div class="band-head">
       <span class="band-num">02</span>
-      <h2>What has to become true</h2>
+      <h2>Outcomes</h2>
       <div class="band-rule"></div>
     </div>
     <div class="card" style="padding:0;overflow:hidden"><div class="linecard">
       <div>
         <div class="lname">New institutions get built when the old ones stall</div>
-        <div class="lend">When an existing institution cannot do the job, someone builds the replacement and publishes the blueprint, so the next one does not start from zero.</div>
+        <div class="lend">When an existing institution isn't fit for a modern context, someone builds the replacement.</div>
       </div>
       <div class="covwrap">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:87%"></i></div>
-        <div class="covn">4 of 14</div>
+        <div class="covn">4</div>
       </div>
     </div><div class="linecard">
       <div>
-        <div class="lname">Money reaches a problem in the form the problem needs</div>
-        <div class="lend">A grant, an equity check, an offtake contract, a loan guarantee. The instrument fits the problem instead of the funder's charter.</div>
+        <div class="lname">Money stops being the obstacle</div>
+        <div class="lend">A grant, an equity check, an offtake contract, a loan guarantee: whatever fits the problem instead of the funder's charter. It moves in weeks, not years, and lack of capital stops being the reason good work doesn't happen.</div>
       </div>
       <div class="covwrap">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:42%"></i></div>
-        <div class="covn">2 of 14</div>
-      </div>
-    </div><div class="linecard">
-      <div>
-        <div class="lname">Capital moves at the speed of the work</div>
-        <div class="lend">Decisions land in weeks. Unproven work gets funded while the funding still changes the outcome.</div>
-      </div>
-      <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
-        <div class="covbar"><i style="width:21%"></i></div>
-        <div class="covn">1 of 14 <span class="thintag">thin</span></div>
+        <div class="covn">2</div>
       </div>
     </div><div class="linecard">
       <div>
         <div class="lname">Talent finds the important work</div>
-        <div class="lend">People who could work anywhere can see where they are needed, and get there without taking a vow of poverty.</div>
+        <div class="lend">People have the visibility and financial incentive to work on the world's most important problems.</div>
       </div>
       <div class="covwrap thin">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:21%"></i></div>
-        <div class="covn">1 of 14 <span class="thintag">thin</span></div>
+        <div class="covn">1</div>
       </div>
     </div></div>
   </div>
@@ -1229,7 +1257,7 @@ body.notes .note{display:block}
   </div>
 
   <div class="card" style="padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap">
-    <div style="font-size:13.5px;color:var(--dim)">Edition 1 &middot; September 2026. When the read changes, the edition changes, and the change gets a video.</div>
+    <div style="font-size:13.5px;color:var(--dim)">Edition 1 &middot; September 2026.</div>
     <span class="pill cov" style="cursor:pointer">Edition history</span>
   </div>
 
@@ -1250,7 +1278,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Anthropic</h1>
-        <div class="chline">Problem 01 &middot; <a data-go="ai">AI</a></div>
+        <div class="chline">Arena 01 &middot; <a data-go="ai">AI</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1317,7 +1345,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Elemental Impact</h1>
-        <div class="chline">Problem 02 &middot; <a data-go="climate">Climate</a></div>
+        <div class="chline">Arena 02 &middot; <a data-go="climate">Climate</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1384,7 +1412,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>data.org</h1>
-        <div class="chline">Problem 03 &middot; <a data-go="democracy">Democracy</a></div>
+        <div class="chline">Arena 03 &middot; <a data-go="democracy">Democracy</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1451,7 +1479,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Center for Humane Technology</h1>
-        <div class="chline">Problem 05 &middot; <a data-go="information">Information</a></div>
+        <div class="chline">Arena 05 &middot; <a data-go="information">Information</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1518,7 +1546,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Project Liberty</h1>
-        <div class="chline">Problem 05 &middot; <a data-go="information">Information</a></div>
+        <div class="chline">Arena 05 &middot; <a data-go="information">Information</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1585,7 +1613,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Axios</h1>
-        <div class="chline">Problem 05 &middot; <a data-go="information">Information</a></div>
+        <div class="chline">Arena 05 &middot; <a data-go="information">Information</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1652,7 +1680,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Emerson Collective</h1>
-        <div class="chline">Problem 06 &middot; <a data-go="method">Method</a></div>
+        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1719,7 +1747,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Helena</h1>
-        <div class="chline">Problem 06 &middot; <a data-go="method">Method</a></div>
+        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1786,7 +1814,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>Stripe</h1>
-        <div class="chline">Problem 06 &middot; <a data-go="method">Method</a></div>
+        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1853,7 +1881,7 @@ body.notes .note{display:block}
       </div>
       <div class="org-name-block">
         <h1>School for Moral Ambition</h1>
-        <div class="chline">Problem 06 &middot; <a data-go="method">Method</a></div>
+        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -2196,9 +2224,9 @@ if(document.getElementById("lines")){
         <div class="lend">${l.e}</div>
       </div>
       <div class="covwrap ${l.thin?'thin':''}">
-        <div class="covlabel">Seats on this line</div>
+        <div class="covlabel">Teams indexed</div>
         <div class="covbar"><i style="width:${Math.min(100,Math.round(l.c/18*100)*3)}%"></i></div>
-        <div class="covn">${l.c} of 18${l.thin?'<span class="thintag">thin</span>':''}</div>
+        <div class="covn">${l.c}</div>
       </div>
     </div>`).join("");
 }
