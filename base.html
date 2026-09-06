@@ -546,6 +546,42 @@ body.notes .note{display:block}
 .ixcard.far .ixcard-name{color:rgba(255,255,255,.2)}
 .ixcard.far .ixcard-drop{color:rgba(255,255,255,.3)}
 
+
+/* ================= outcomes page ================= */
+.oc-hero{padding:8px 0 44px;border-bottom:1px solid var(--hair2);margin-bottom:52px}
+.oc-hero h1{font-family:var(--serif);font-weight:340;font-size:clamp(36px,5vw,58px);line-height:1.08;letter-spacing:-.015em;max-width:760px;margin-top:12px}
+.oc-hero .sub{margin-top:22px;max-width:540px;font-size:16.5px;line-height:1.65;color:var(--dim);border-left:2px solid var(--bluedeep);padding-left:18px}
+.oc-stats{display:flex;gap:44px;margin-top:38px;flex-wrap:wrap}
+.oc-jump{display:flex;gap:6px;flex-wrap:wrap;margin-top:34px}
+.oc-jump button{font-family:var(--sans);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;background:#fff;border:1px solid var(--hair);color:var(--dim);padding:8px 16px;border-radius:99px;cursor:pointer;display:inline-flex;align-items:center;gap:8px;transition:color .15s,border-color .15s}
+.oc-jump button i{width:8px;height:8px;border-radius:50%;display:inline-block;opacity:.9}
+.oc-jump button:hover{border-color:var(--bluedeep);color:var(--bluedeep)}
+
+.oc-arena{margin-bottom:56px;scroll-margin-top:80px}
+.oc-arena-head{display:flex;align-items:center;gap:18px;margin-bottom:16px}
+.oc-swatch{width:64px;height:44px;border-radius:3px;flex:0 0 auto;display:flex;align-items:flex-end;padding:6px 8px;box-shadow:0 6px 16px -10px rgba(13,27,42,.4)}
+.oc-swatch .num{position:relative;z-index:1;font-family:var(--serif);font-style:italic;font-weight:300;font-size:15px;color:rgba(255,255,255,.7);line-height:1}
+.oc-arena-head h2{font-family:var(--serif);font-weight:400;font-size:26px;letter-spacing:-.02em;line-height:1.1}
+.oc-arena-head h2 a{cursor:pointer;border-bottom:1px solid transparent;transition:border-color .15s}
+.oc-arena-head h2 a:hover{border-bottom-color:var(--bluedeep)}
+.oc-meta{font-size:12.5px;color:var(--dim);margin-top:3px}
+.oc-brief{margin-left:auto;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--bluedeep);cursor:pointer;white-space:nowrap;transition:color .15s}
+.oc-brief:hover{color:var(--ink)}
+.oc-lines{padding:0;overflow:hidden}
+.oc-line{display:grid;grid-template-columns:44px 1fr 150px;gap:18px;align-items:start;padding:16px 22px;border-bottom:1px solid var(--hair2)}
+.oc-line:last-child{border-bottom:none}
+.oc-n{font-family:var(--serif);font-style:italic;font-weight:300;font-size:17px;color:var(--faint);line-height:1.3}
+.oc-cov{text-align:right;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--dim);padding-top:2px;white-space:nowrap}
+.oc-cov b{font-family:var(--serif);font-weight:400;font-size:18px;color:var(--ink);margin-right:6px;letter-spacing:0}
+.oc-cov.none{color:var(--faint)}
+.oc-cov.none b{color:var(--faint)}
+.oc-foot{padding:16px 22px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap;font-size:13.5px;color:var(--dim)}
+@media(max-width:640px){
+  .oc-line{grid-template-columns:32px 1fr;gap:12px;padding:14px 16px}
+  .oc-cov{grid-column:2;text-align:left;padding-top:0}
+  .oc-brief{display:none}
+  .oc-stats{gap:28px}
+}
 </style>
 </head>
 <body>
@@ -556,6 +592,7 @@ body.notes .note{display:block}
   <div class="unav-links">
     <button data-view="index" class="on">The Index</button>
     <button id="probsToggle" class="probs-btn">The Arenas</button>
+    <button data-view="outcomes">Outcomes</button>
   </div>
   <button id="aboutNavBtn" data-view="about">About</button>
 </div>
@@ -576,7 +613,7 @@ body.notes .note{display:block}
 <!-- HERO -->
 <header class="hero"><div class="wrap">
   <div class="ix-eyebrow">The Row<span class="ix-index">Index</span></div>
-  <h1>The top 99 teams solving humanity's biggest problems</h1>
+  <h1>The top 99 teams fixing society's biggest problems</h1>
   <p class="sub">Row makes it easy for talent and capital to find the teams doing the world's most important work.</p>
   <div class="herometa">
     <div class="hm"><div class="n">10<span>/99</span></div><div class="l">Indexed</div></div>
@@ -614,7 +651,7 @@ body.notes .note{display:block}
 
 <!-- PROBLEMS -->
 <section class="section" id="problems"><div class="wrap">
-  <div class="shead"><span class="micro">The arenas</span><h2>Six arenas</h2></div>
+  <div class="shead"><span class="micro">The arenas</span><h2>Six arenas</h2><a class="right" data-go="outcomes" style="cursor:pointer">All outcomes →</a></div>
   <div class="probgrid">
     <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
@@ -1953,7 +1990,7 @@ body.notes .note{display:block}
 
   <header class="ab-hero"><div class="wrap">
     <div class="ix-eyebrow">About <span class="ix-index">row99</span></div>
-    <h1>row indexes the teams doing the best work on humanity's biggest problems so talent &amp; funding know where to go.</h1>
+    <h1>row indexes the teams doing the best work on society's biggest problems so talent &amp; funding know where to go.</h1>
     <div class="ab-btnrow">
       <button class="ab-btn" data-go="index">See the 99</button>
     </div>
@@ -1966,7 +2003,7 @@ body.notes .note{display:block}
       <p>If you want to know how the economy is doing, you look at the S&amp;P 500. If you want to know who's playing good ball, you look at a league's standings. Restaurants have Michelin, movies have the box office.</p>
 
 
-      <p class="ab-punch">The biggest problems facing humanity have no such thing.</p>
+      <p class="ab-punch">The biggest problems facing society have no such thing.</p>
 
       <p>It shouldn't be hard to name the five teams doing the best work on AI safety. Or the grid. Or mental health. Or getting money out of politics.</p>
 
@@ -1981,7 +2018,7 @@ body.notes .note{display:block}
     <div class="ab-band-head"><span class="ab-num">02</span><h2>what it is</h2><div class="ab-rule"></div></div>
     <div class="ab-prose">
       <p>The inaugural row99 has 99 seats across six problem categories.</p>
-      <p>Each seat goes to one team doing the best work on one of humanity's biggest problems. Right now that's AI, climate, democracy, culture, information, and what I'm calling "method," teams changing how we solve problems.</p>
+      <p>Each seat goes to one team doing the best work on one of society's biggest problems. Right now that's AI, climate, democracy, culture, information, and what I'm calling "method," teams changing how we solve problems.</p>
       <p>Unlike other lists of nonprofits or innovative companies, the row99 is sector agnostic. If a team is doing great work, they're on the list.</p>
       <p>As the index grows, so does our picture of a field. "The people working on democracy" becomes a thing you can see. You can navigate it, compare teams, and argue about who should be in there. That argument is the sign it's working, btw.</p>
 
@@ -2015,6 +2052,32 @@ body.notes .note{display:block}
     <p>For humanity to get its sh*t together on its biggest challenges, we need a shared space to understand the problems and key players. Row hopes to build just that.</p>
   </div>
 
+
+</section>
+
+<!-- ============================================================ -->
+<!-- VIEW · OUTCOMES (built at load from the six arena briefs) -->
+<!-- ============================================================ -->
+<section class="view" id="v-outcomes">
+
+  <div class="oc-hero">
+    <div class="micro blue">Outcomes</div>
+    <h1>The outcomes the 99 are driving for humanity.</h1>
+    <p class="sub">Every seat on the row99 works at least one of these lines.</p>
+    <div class="oc-stats">
+      <div class="hm"><div class="n" id="ocTotal">0</div><div class="l">Outcome lines</div></div>
+      <div class="hm"><div class="n">6</div><div class="l">Arenas</div></div>
+      <div class="hm"><div class="n"><b id="ocIndexed" style="font-weight:400">0</b><span>/99</span></div><div class="l">Indexed</div></div>
+    </div>
+    <div class="oc-jump" id="ocJump"></div>
+  </div>
+
+  <div id="ocBody"></div>
+
+  <div class="card oc-foot">
+    <div>Edition 1 · September 2026.</div>
+    <span class="pill cov" style="cursor:pointer">Edition history</span>
+  </div>
 
 </section>
 
@@ -2252,6 +2315,40 @@ if(document.getElementById("roster")){
       </div>
     </div>`).join("");
 }
+
+/* ---- outcomes page: built from the six arena briefs so the two can't drift ---- */
+(function(){
+  const body=document.getElementById("ocBody"); if(!body) return;
+  let total=0, html="";
+  BUCKETS.forEach((b,i)=>{
+    const sec=document.getElementById("v-"+b.k); if(!sec) return;
+    const metaB=sec.querySelector(".prob-meta b");
+    const indexed=metaB?metaB.textContent.trim():"0";
+    const lines=[...sec.querySelectorAll(".linecard")].map(lc=>{
+      const n=lc.querySelector(".lname"), e=lc.querySelector(".lend"), c=lc.querySelector(".covn");
+      const cnt=c?(parseInt(c.textContent,10)||0):0;
+      return {n:n?n.innerHTML:"", e:e?e.innerHTML:"", c:cnt};
+    });
+    total+=lines.length;
+    html+=`<div class="oc-arena" id="oc-${b.k}">
+      <div class="oc-arena-head">
+        <span class="oc-swatch cover tx-${b.k}"><span class="num">${String(i+1).padStart(2,"0")}</span></span>
+        <div><h2><a data-go="${b.k}">${b.n}</a></h2><div class="oc-meta">${lines.length} outcome line${lines.length===1?"":"s"} · ${indexed} indexed</div></div>
+        <a class="oc-brief" data-go="${b.k}">Snapshot →</a>
+      </div>
+      <div class="card oc-lines">${lines.map((l,j)=>`<div class="oc-line"><span class="oc-n">${String(j+1).padStart(2,"0")}</span><div><div class="lname">${l.n}</div><div class="lend">${l.e}</div></div><div class="oc-cov${l.c?"":" none"}"><b>${l.c}</b>${l.c===1?"team":"teams"} indexed</div></div>`).join("")}</div>
+    </div>`;
+  });
+  body.innerHTML=html;
+  document.getElementById("ocTotal").textContent=total;
+  document.getElementById("ocIndexed").textContent=Object.keys(SEATED).length;
+  const jump=document.getElementById("ocJump");
+  jump.innerHTML=BUCKETS.map(b=>`<button data-jump="oc-${b.k}"><i class="ab-c-${b.k}"></i>${b.n}</button>`).join("");
+  jump.addEventListener("click",e=>{
+    const t=e.target.closest("[data-jump]"); if(!t) return;
+    const el=document.getElementById(t.dataset.jump); if(el) el.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+})();
 
 /* ---- about page: grid builders + reveal animations ---- */
 function abChapColor(seat){
