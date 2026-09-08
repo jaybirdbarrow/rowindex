@@ -101,6 +101,7 @@ nav{position:sticky;top:0;z-index:40;background:rgba(251,252,253,.85);backdrop-f
 .drop .cover{aspect-ratio:4/5;border-radius:4px;display:flex;flex-direction:column;justify-content:space-between;padding:26px;transition:transform .35s ease;box-shadow:0 2px 6px rgba(13,27,42,.06),0 24px 48px -24px rgba(13,27,42,.28)}
 .drop:hover .cover{transform:translateY(-5px)}
 .drop .seat{font-family:var(--serif);font-size:15px;color:rgba(255,255,255,.8);letter-spacing:.06em;position:relative;z-index:2;background:none;border:none;min-height:auto;padding:0}
+.drop .seat.dark{color:rgba(13,27,42,.85)}
 .drop .wm{position:relative;z-index:2;font-family:var(--serif);font-weight:500;font-size:clamp(28px,3vw,44px);line-height:1.05;letter-spacing:.01em;color:#fff;text-shadow:0 2px 30px rgba(0,0,0,.35)}
 .drop .wm span{display:block;font-family:var(--sans);font-weight:500;font-size:12.5px;letter-spacing:.02em;color:rgba(255,255,255,.85);margin-top:12px;max-width:300px;line-height:1.5;text-transform:none}
 .dropmeta{display:flex;gap:14px;margin-top:13px;align-items:baseline}
@@ -489,6 +490,9 @@ body.notes .note{display:block}
 
 .org-info-bar{background:var(--bg2);border:1px solid var(--hair2);border-top:none;border-radius:0 0 4px 4px;padding:18px 28px;display:flex;align-items:flex-start;gap:24px;flex-wrap:wrap}
 .org-one-line{font-size:16px;color:var(--dim);line-height:1.5;flex:1;min-width:280px}
+.org-lines{flex:1;min-width:280px;display:flex;flex-direction:column;gap:6px}
+.org-lines .org-one-line{flex:none;min-width:0}
+.org-hero{font-size:14.5px;font-weight:300;color:var(--dim);line-height:1.5}
 .org-pills{display:flex;gap:6px;flex-wrap:wrap;flex:0 0 auto}
 .org-note{font-size:14px;color:var(--faint);line-height:1.5;flex:1;min-width:280px}
 .org-badge{border-radius:6px;overflow:hidden;background:#0d1b2a;aspect-ratio:4/5;background-size:cover;background-position:center top}
@@ -497,6 +501,7 @@ body.notes .note{display:block}
 .obcard{padding:20px 22px}
 .obcard h4{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:12px}
 .obcard p{font-size:14.5px;line-height:1.65;color:var(--ink)}
+.obcard p+p{margin-top:12px}
 
 .receipt{border-left:3px solid var(--bluedeep);padding-left:14px;font-size:14px;line-height:1.6}
 .receipt .rdate{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--bluedeep);display:block;margin-bottom:4px}
@@ -632,19 +637,19 @@ body.notes .note{display:block}
 <section class="section" id="drops"><div class="wrap">
   <div class="shead"><span class="micro">Latest</span><h2>New to the list</h2><a class="right" href="#index">All 99 →</a></div>
   <div class="drops">
-    <a class="drop" data-go="org-emerson">
-      <div class="cover photo tx-emerson-photo">
-        <div class="seat">Seat 02 · Method</div>
-        <div class="wm"><span>Philanthropy rebuilt as a full-stack operating firm. Any tool, one mission.</span></div>
-      </div>
-      <div class="dropmeta"><span class="b">Seated</span><span class="r">The archetype for the method problem</span></div>
-    </a>
     <a class="drop" data-go="org-helena">
       <div class="cover photo tx-helena-photo">
-        <div class="seat">Seat 01 · Method</div>
+        <div class="seat dark">Seat 01 · Method</div>
         <div class="wm"></div>
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">Problem-solving as the product, any vehicle that works</span></div>
+    </a>
+    <a class="drop" data-go="org-emerson">
+      <div class="cover photo tx-emerson-photo">
+        <div class="seat">Seat 02 · Method</div>
+        <div class="wm"><span>A new take on philanthropy, built as a full-stack operating institution.</span></div>
+      </div>
+      <div class="dropmeta"><span class="b">Seated</span><span class="r">The archetype for the method problem</span></div>
     </a>
     <a class="drop" data-go="org-stripe">
       <div class="cover photo tx-stripe-photo">
@@ -1548,7 +1553,10 @@ body.notes .note{display:block}
       </div>
     </div>
     <div class="org-info-bar">
-      <div class="org-one-line">An LLC that grants, invests and operates, funding school redesigns and running violence-prevention work, while holding a controlling stake in The Atlantic.</div>
+      <div class="org-lines">
+        <div class="org-one-line">A new take on philanthropy, built as a full-stack operating institution.</div>
+        <div class="org-hero">A flexible and durable structure that grants, invests and operates across the societal problem space.</div>
+      </div>
       <div class="org-pills">
         <span class="pill type">LLC</span>
         <span class="pill seated">Indexed</span>
@@ -1566,7 +1574,8 @@ body.notes .note{display:block}
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Why the seat</h4>
-        <p>Emerson Collective is built as an LLC instead of a private foundation, which frees it to do things a foundation legally cannot. IRS rules cap a foundation, together with its insiders, at 20 percent of a company's voting stock, and Emerson holds a controlling stake in The Atlantic. It writes venture equity checks and funds open political advocacy. It also incubates and houses its own organizations rather than only granting to them, including XQ Institute, Chicago CRED and E Pluribus Unum, each separately incorporated and co-founded by Emerson. When a vehicle outgrows the house it spins out with its own balance sheet, the way Waverley Street Foundation was capitalized with $3.5 billion for climate in 2021.</p>
+        <p>Billionaires have come under fire lately, and I get the argument. Emerson is on this list because it's one of the best examples I've found of a high-net-worth person choosing to work these problems at a different altitude. The traditional playbook is a private foundation: stock goes in, they get the tax deduction, and a small percentage of the money is actually deployed to solution work. I can't knock that path entirely, but my sense is it moves too slowly to meet the moment we're in.</p>
+        <p>Laurene Powell Jobs built Emerson to deploy. It's an LLC with a nonprofit arm, so it can grant, invest, own, run, and advocate, and it picks whichever one moves the problem fastest. The bigger difference, though, is the operating posture. Most philanthropy strokes the check and steps back. Emerson often builds the thing, then puts an operator inside it to run it and keeps them on the hook for whether it works. Speed and impact over the long, safe drip. It's the model I'd point any new fortune at.</p>
       </div>
       <div class="card obcard">
         <h4>Lines they work</h4>
@@ -1681,7 +1690,10 @@ body.notes .note{display:block}
       </div>
     </div>
     <div class="org-info-bar">
-      <div class="org-one-line">A foundation and a private investment firm under one roof, picking the problem first and then choosing the vehicle: a grant, a bill, an equity stake, a citizens' assembly.</div>
+      <div class="org-lines">
+        <div class="org-one-line">One-of-a-kind global problem-solving organization.</div>
+        <div class="org-hero">A foundation and a private investment firm under one roof, backed by a membership of experts deeply fluent in societal challenges.</div>
+      </div>
       <div class="org-pills">
         <span class="pill type">Nonprofit</span>
         <span class="pill seated">Indexed</span>
@@ -1699,7 +1711,8 @@ body.notes .note{display:block}
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Why the seat</h4>
-        <p>Helena runs two entities under one brand, a 501(c)(3) foundation and Helena Special Investments. The stated process picks a problem first and then assigns it a vehicle, which might be a grant, a company, an equity stake, a policy campaign, or a four-day deliberative poll. Solving a problem like this normally takes three different people — one to bring the idea, one to diligence it, one to write the check. Helena's bet is that people can do all three at once, so instead of building a research team, they built a membership: 100-plus profiled experts, from ocean explorers to economists, and for any given problem, calls on whichever of them actually knows how to fix it. A conventional foundation has to find an existing grantee, fit the work to its program areas, and cannot take equity in the answer. Helena can start the thing and own part of it.</p>
+        <p>Helena is the organization that first got me excited about the people driving societal progress and the technologies underneath them. Their thesis is a clean read: modern problems demand fundamentally different institutions. Their approach backs it up. They work three layers of problem-solving, sourcing the ideas, running world-class diligence on the solutions, and then doing the implementation themselves, and they've done it across enough problems to show the model works. We need more organizations willing to operate outside the traditional boundaries and shape their structure to what the moment needs.</p>
+        <p>The membership is the other thing that sets them apart. More than a hundred experts across disciplines, in a society that keeps them siloed everywhere else, and the results speak for themselves. And they look and feel like the leader they are: clean brand, deep-dive content, and nuance running through all of the work.</p>
       </div>
       <div class="card obcard">
         <h4>Lines they work</h4>
@@ -1803,7 +1816,10 @@ body.notes .note{display:block}
       </div>
     </div>
     <div class="org-info-bar">
-      <div class="org-one-line">Through Frontier, a buyers' coalition that has committed $1.8 billion to purchase carbon removal that does not exist yet, so suppliers can finance plants against guaranteed revenue.</div>
+      <div class="org-lines">
+        <div class="org-one-line">A new, durable brand of corporate social responsibility.</div>
+        <div class="org-hero">Stripe is setting the standard for how a company engages big problems, with a public goods arm that builds markets and operates solutions.</div>
+      </div>
       <div class="org-pills">
         <span class="pill type">Public benefit LLC (Stripe subsidiary)</span>
         <span class="pill seated">Indexed</span>
@@ -1821,7 +1837,8 @@ body.notes .note{display:block}
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Why the seat</h4>
-        <p>Frontier, a public benefit LLC wholly owned by Stripe, is a purchase order written years before the product exists. A grantmaker funds work that has already been scoped. Frontier signs eight- to ten-year offtake contracts, some running to 2040, that a supplier can carry into a bank as collateral. That converts philanthropy-shaped money into project finance, which is the real bottleneck for a first-of-a-kind plant. The structure travels: pool unrelated companies' commitments, run technical diligence once instead of ten times, buy on their behalf. Any industry with an expensive unbuilt supply chain could copy it. Almost none have.</p>
+        <p>Stripe wasn't the first to set up an advance market commitment, but it did it the loudest. When they stood up Frontier to build a market for carbon removal, the headlines were deserved. What strikes me is what happened after. ESG and corporate social responsibility faded across the industry, and Stripe stayed the course and pushed further, growing the effort into what they now call Public Goods. The fundamentals of Frontier are simple: get a group of companies to promise, together, to buy carbon removal before it exists. A guaranteed customer is what lets a startup borrow the money to build the plant.</p>
+        <p>They're now running the same play on respiratory infections. Intercept launched in June with $500 million alongside Anthropic, the OpenAI Foundation and Flu Lab, with the mission of making the common cold and flu a thing of the past. The founders seem to care about building something that actually works, and they've stayed at it long enough to prove it isn't performative. Stripe is the best model for a company truly operating a solution vs. donating to one and just hoping for the best.</p>
       </div>
       <div class="card obcard">
         <h4>Lines they work</h4>
@@ -1840,6 +1857,11 @@ body.notes .note{display:block}
           <span class="rdate">Aug 2026</span>
           Frontier's live progress page shows $694M contracted, 1,841,384 tons contracted, and 77,871 tons delivered — a complete, per-supplier, filterable ledger updated monthly.
           <div class="srcline"><a href="https://frontierclimate.com/progress" target="_blank" rel="noopener">frontierclimate.com/progress</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">Jun 2026</span>
+          Stripe launched Intercept on June 24, a $500 million nonprofit to prevent respiratory infections, starting with the common cold and flu, funded alongside Anthropic, the OpenAI Foundation, Flu Lab, Bill Gates and Jane Street traders. Led by Nan Ransohoff, Stripe's head of Public Goods.
+          <div class="srcline"><a href="https://www.technologyreview.com/2026/06/24/1139621/" target="_blank" rel="noopener">MIT Technology Review</a></div>
         </div>
         <div class="receipt">
           <span class="rdate">Jun 2026</span>
@@ -2006,7 +2028,7 @@ body.notes .note{display:block}
         <div class="ab-seatbody">
           <span class="ab-seatchip">Seat 01 &middot; Method</span>
           <h3>Helena</h3>
-          <p>A foundation and a private investment firm under one roof, picking the problem first and then choosing the vehicle: a grant, a bill, an equity stake, a citizens' assembly.</p>
+          <p>A foundation and a private investment firm under one roof, backed by a membership of experts deeply fluent in societal challenges.</p>
           <div class="rec"><b>The work</b>Flew 500-plus random Americans to Dallas for a weekend of debate. Warmth between Republicans and Democrats rose double digits by the end of it.</div>
           <span class="ab-seatlink" data-go="org-helena">Read the full seat &rarr;</span>
         </div>
@@ -2229,9 +2251,9 @@ const BUCKETS=[
 ];
 /* seats run 1..99 in order of induction; each seated team carries its arena */
 const SEATED={
- 1:{n:"Helena",b:"method",full:true,line:"Problem-solving as the product, any vehicle that works."},
- 2:{n:"Emerson Collective",b:"method",full:true,line:"Philanthropy rebuilt as a full-stack operating firm."},
- 3:{n:"Stripe Public Goods",b:"method",full:true,line:"The biggest tech company funding climate science and basic research."},
+ 1:{n:"Helena",b:"method",full:true,line:"One-of-a-kind global problem-solving organization."},
+ 2:{n:"Emerson Collective",b:"method",full:true,line:"A new take on philanthropy, built as a full-stack operating institution."},
+ 3:{n:"Stripe Public Goods",b:"method",full:true,line:"A new, durable brand of corporate social responsibility."},
  4:{n:"School for Moral Ambition",b:"method"},
  5:{n:"Anthropic",b:"ai"},
  6:{n:"Center for Humane Tech",b:"information"},
