@@ -12,3 +12,6 @@
 !.gitignore
 !base.html
 !_redirects
+!img/
+!img/*
+!_headers
