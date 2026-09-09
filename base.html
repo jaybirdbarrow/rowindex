@@ -88,7 +88,7 @@ nav{position:sticky;top:0;z-index:40;background:rgba(251,252,253,.85);backdrop-f
 .hero h1{font-family:var(--serif);font-weight:340;font-size:clamp(44px,7vw,86px);line-height:1.02;letter-spacing:-.015em;max-width:900px}
 .hero h1 em{font-style:italic;font-weight:340;color:var(--bluedeep)}
 .hero .sub{margin-top:28px;max-width:540px;font-size:17px;line-height:1.65;color:var(--dim);border-left:2px solid var(--bluedeep);padding-left:18px;margin-left:1px}
-.ix-eyebrow{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;font-size:19px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);margin-bottom:30px;line-height:1}
+.ix-eyebrow{display:flex;align-items:baseline;gap:.3em;flex-wrap:wrap;font-size:19px;font-weight:800;letter-spacing:.15em;text-transform:uppercase;color:var(--ink);margin-bottom:30px;line-height:1}
 .ix-index{color:var(--bluedeep)}
 .ix-listtag{font-family:var(--sans);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:none;
   color:var(--dim);background:rgba(13,27,42,.05);border:1px solid var(--hair2);border-radius:99px;padding:4px 11px}
@@ -528,7 +528,8 @@ body.notes .note{display:block}
 .linechip{border:1px solid var(--hair2);border-radius:3px;padding:10px 14px;font-size:13.5px;font-weight:500;display:flex;justify-content:space-between;gap:8px;align-items:center;background:var(--hair3)}
 .linechip span{font-size:11px;color:var(--faint);font-weight:500}
 
-.vid{border-radius:6px;overflow:hidden;position:relative;background:#0d1b2a;aspect-ratio:4/5;background-size:cover;background-position:center top;cursor:pointer}.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.10) 0%,transparent 30%,transparent 52%,rgba(0,0,0,.62) 100%)}.vid .pwrap{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:11px;padding-bottom:22px}.vid .pcircle{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);transition:transform .2s ease,background .2s ease}.vid:hover .pcircle{transform:scale(1.09);background:rgba(255,255,255,.32)}.vid .pcircle::after{content:"";border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff;margin-left:4px}.vid .vlabel{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.55)}.orgback{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--bluedeep);padding:12px 0;margin:-12px 0 8px;cursor:pointer}.orgback:hover{color:var(--ink)}.srcline{font-size:11px;color:var(--faint);margin-top:9px;letter-spacing:.01em}
+.vid{border-radius:6px;overflow:hidden;position:relative;background:#0d1b2a;aspect-ratio:4/5;background-size:cover;background-position:center top;cursor:pointer}.vid::after{content:"";position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.10) 0%,transparent 30%,transparent 52%,rgba(0,0,0,.62) 100%)}.vid .pwrap{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;gap:11px;padding-bottom:22px}.vid .pcircle{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,.20);border:1.5px solid rgba(255,255,255,.55);display:flex;align-items:center;justify-content:center;-webkit-backdrop-filter:blur(5px);backdrop-filter:blur(5px);transition:transform .2s ease,background .2s ease}.vid:hover .pcircle{transform:scale(1.09);background:rgba(255,255,255,.32)}
+.vid.playing{aspect-ratio:9/16;background-image:none!important;cursor:default}.vid.playing::after,.vid.playing .pwrap{display:none}.vid video{position:absolute;inset:0;width:100%;height:100%;display:block;background:#0d1b2a}.vid .pcircle::after{content:"";border-style:solid;border-width:8px 0 8px 13px;border-color:transparent transparent transparent #fff;margin-left:4px}.vid .vlabel{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.92);text-shadow:0 1px 10px rgba(0,0,0,.55)}.orgback{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--bluedeep);padding:12px 0;margin:-12px 0 8px;cursor:pointer}.orgback:hover{color:var(--ink)}.srcline{font-size:11px;color:var(--faint);margin-top:9px;letter-spacing:.01em}
 
 
 
@@ -644,7 +645,7 @@ body.notes .note{display:block}
 <header class="hero"><div class="wrap">
   <div class="ix-eyebrow">The Row<span class="ix-index">Index</span></div>
   <h1>The top 99 teams fixing society's hardest problems</h1>
-  <p class="sub">Your guide to the people and tech fixing the world, so talent and funding know where to go.</p>
+  <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
     <div class="hm"><div class="n">10<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
@@ -665,7 +666,7 @@ body.notes .note{display:block}
     <a class="drop" data-go="org-emerson">
       <div class="cover photo tx-emerson-photo">
         <div class="seat">Seat 02 · Method</div>
-        <div class="wm"><span>A new take on philanthropy, built as a full-stack operating institution.</span></div>
+        <div class="wm"></div>
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">A new take on philanthropy, built as a full-stack operating institution.</span></div>
     </a>
@@ -1720,7 +1721,7 @@ body.notes .note{display:block}
   </div>
 
   <div class="org-body">
-    <div class="vid" style="background-image:url(/img/badge-01-helena.webp)">
+    <div class="vid" data-video="/video/helena.mp4" style="background-image:url(/img/badge-01-helena.webp)">
       <div class="pwrap">
         <div class="pcircle"></div>
         <div class="vlabel">The induction &middot; 2m</div>
@@ -2257,6 +2258,16 @@ window.addEventListener("popstate", e => {
   if (!e.state && location.hash) return;   // plain in-page anchor jump
   const v = (e.state && e.state.v) || viewFor(location.pathname) || "index";
   go(v, {push: false, y: e.state && e.state.y});
+});
+/* ---- induction videos: the poster turns into a player on tap ---- */
+document.querySelectorAll(".vid[data-video]").forEach(box => {
+  box.addEventListener("click", () => {
+    if (box.classList.contains("playing")) return;
+    const v = document.createElement("video");
+    v.src = box.dataset.video; v.controls = true; v.playsInline = true; v.preload = "metadata";
+    box.classList.add("playing"); box.appendChild(v);
+    v.play().catch(() => {});
+  });
 });
 /* ---- portfolio row99 JS ---- */
 const BUCKETS=[
