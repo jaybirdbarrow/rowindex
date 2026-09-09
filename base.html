@@ -6,13 +6,24 @@
 <title>row — the row99</title>
 <link rel="preload" as="image" href="/img/wordmark.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+/* metric-matched fallbacks so the swap to the web fonts does not shift layout.
+   size-adjust from rendered width ratios (Fraunces has an optical-size axis, so
+   so 100% matches the headings, which are the elements that would shift); ascent and
+   descent are the web font's metrics scaled by the same factor. */
+@font-face{font-family:'Fraunces Fallback';src:local('Georgia');size-adjust:100%;ascent-override:97.8%;descent-override:25.5%;line-gap-override:0%}
+@font-face{font-family:'Fraunces Fallback';font-style:italic;src:local('Georgia Italic'),local('Georgia-Italic');size-adjust:93%;ascent-override:105.2%;descent-override:27.4%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback';font-weight:100 500;src:local('Helvetica Neue'),local('HelveticaNeue');size-adjust:105.7%;ascent-override:91.7%;descent-override:22.8%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback';font-weight:600 900;src:local('Helvetica Neue Bold'),local('HelveticaNeue-Bold');size-adjust:101.9%;ascent-override:95.1%;descent-override:23.7%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback Arial';src:local('Arial'),local('ArialMT');size-adjust:107.4%;ascent-override:90.2%;descent-override:22.5%;line-gap-override:0%}
+@font-face{font-family:'Inter Fallback Roboto';src:local('Roboto'),local('Roboto-Regular');size-adjust:100.3%;ascent-override:96.6%;descent-override:24%;line-gap-override:0%}
 :root{
   --bg:#fbfcfd; --bg2:#ffffff; --ink:#0d1b2a; --dim:#5b6b7a; --faint:#93a3b1;
   --blue:#B8E2F2; --bluewash:rgba(184,226,242,.32); --bluedeep:#3D8EC4; --navy:#0d1b2a;
   --hair:rgba(13,27,42,.14); --hair2:rgba(13,27,42,.08); --gold:#C4A053;
-  --serif:'Fraunces',serif; --sans:'Inter',sans-serif;
+  --serif:'Fraunces','Fraunces Fallback',Georgia,serif; --sans:'Inter','Inter Fallback','Inter Fallback Arial','Inter Fallback Roboto',system-ui,sans-serif;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -190,7 +201,7 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .feat-chip{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);border-radius:2px;padding:3px 8px}
 .feat-num{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4)}
 .feat-body{position:relative;z-index:1}
-.feat-name{font-family:"Fraunces",serif;font-size:23px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:5px}
+.feat-name{font-family:var(--serif);font-size:23px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:5px}
 .feat-line{font-family:"Inter",sans-serif;font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.45}
 .ix-queue-head{font-family:"Inter",sans-serif;font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--dim);margin:8px 0 14px;opacity:.65}
 .ixgrid-small{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px}
@@ -207,9 +218,9 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .chapstrip-inner{max-width:1180px;margin:0 auto;padding:0 32px;display:flex;align-items:center;
   gap:2px;height:44px;overflow-x:auto;scrollbar-width:none}
 .chapstrip-inner::-webkit-scrollbar{display:none}
-.chapstrip-lab{font-family:'Inter',sans-serif;font-size:9.5px;font-weight:700;letter-spacing:.18em;
+.chapstrip-lab{font-family:var(--sans);font-size:9.5px;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--faint);margin-right:14px;flex:0 0 auto;opacity:.8}
-.chapstrip-inner a,.chapstrip-inner button{font-family:'Inter',sans-serif;font-size:11.5px;font-weight:600;
+.chapstrip-inner a,.chapstrip-inner button{font-family:var(--sans);font-size:11.5px;font-weight:600;
   letter-spacing:.06em;background:none;border:none;color:var(--dim);cursor:pointer;
   padding:6px 12px;border-radius:3px;white-space:nowrap;flex:0 0 auto;transition:background .15s,color .15s}
 .chapstrip-inner a,.chapstrip-inner button:hover{color:var(--ink);background:rgba(13,27,42,.045)}
@@ -314,7 +325,7 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .unav .mark img{height:18px;width:auto;display:block}
 @media(max-width:640px){.unav .mark{margin-right:14px}.unav .mark img{height:16px}}
 .unav-links{display:flex;gap:0;flex:1}
-.unav-links a,.unav-links button,#aboutNavBtn{font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:#5b6b7a;padding:10px 14px;cursor:pointer;position:relative;transition:color .15s;text-decoration:none}
+.unav-links a,.unav-links button,#aboutNavBtn{font-family:var(--sans);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;background:none;border:none;color:#5b6b7a;padding:10px 14px;cursor:pointer;position:relative;transition:color .15s;text-decoration:none}
 .unav-links a::after,.unav-links button::after,#aboutNavBtn::after{content:"";position:absolute;bottom:0;left:14px;right:14px;height:2px;background:#3D8EC4;transform:scaleX(0);transform-origin:left;transition:transform .2s}
 .unav-links a:hover,.unav-links button:hover,#aboutNavBtn:hover{color:#0d1b2a}
 .unav-links button.on,#aboutNavBtn.on{color:#0d1b2a}
@@ -552,11 +563,11 @@ body.notes .note{display:block}
 .ixcard{display:block;border-radius:4px;overflow:hidden;cursor:pointer;text-decoration:none;transition:transform .18s,box-shadow .18s}
 .ixcard:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(13,27,42,.22)}
 .ixcard .cover{height:148px;display:flex;flex-direction:column;justify-content:flex-end;padding:12px 14px;gap:0}
-.ixcard-seat{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px;font-family:'Inter',sans-serif}
-.ixcard-name{font-family:'Fraunces',serif;font-size:15px;color:#fff;font-weight:300;line-height:1.2;letter-spacing:-.01em}
-.ixcard-status{font-size:10.5px;color:rgba(255,255,255,.55);margin-top:4px;font-family:'Inter',sans-serif}
+.ixcard-seat{font-size:9px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);margin-bottom:5px;font-family:var(--sans)}
+.ixcard-name{font-family:var(--serif);font-size:15px;color:#fff;font-weight:300;line-height:1.2;letter-spacing:-.01em}
+.ixcard-status{font-size:10.5px;color:rgba(255,255,255,.55);margin-top:4px;font-family:var(--sans)}
 .ixcard.pending .ixcard-name{color:rgba(255,255,255,.3)}
-.ixcard-drop{font-size:10.5px;color:rgba(255,255,255,.65);font-weight:600;margin-top:4px;font-family:'Inter',sans-serif;letter-spacing:.02em}
+.ixcard-drop{font-size:10.5px;color:rgba(255,255,255,.65);font-weight:600;margin-top:4px;font-family:var(--sans);letter-spacing:.02em}
 .ixcard.far .ixcard-name{color:rgba(255,255,255,.2)}
 .ixcard.far .ixcard-drop{color:rgba(255,255,255,.3)}
 
