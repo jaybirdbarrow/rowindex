@@ -197,7 +197,6 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 @media(max-width:640px){.feat-grid{grid-template-columns:repeat(2,1fr)}}
 .ixfeat{display:block;border-radius:4px;overflow:hidden;cursor:pointer;text-decoration:none;transition:transform .15s,box-shadow .15s}
 .ixfeat:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,0,0,.15)}
-.ixfeat.lite{opacity:.84;transition:transform .15s,box-shadow .15s,opacity .15s}.ixfeat.lite:hover{opacity:1}
 .feat-bg{aspect-ratio:4/5;height:auto;display:flex;flex-direction:column;justify-content:space-between;padding:18px 20px;box-sizing:border-box;background:#0d1b2a;background-size:cover;background-position:center top;position:relative}
 
 .feat-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
@@ -476,7 +475,6 @@ body.notes .note{display:block}
 .orgcard .obot{display:flex;gap:6px;flex-wrap:wrap}
 .orgcard.covg{background:var(--hair3);border-style:dashed;border-color:var(--hair)}
 .orgcard.covg .onm{color:var(--dim)}
-.orgcard.lite{opacity:.84;transition:opacity .15s}.orgcard.lite:hover{opacity:1}
 
 /* roles */
 .role-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
@@ -1303,7 +1301,7 @@ body.notes .note{display:block}
         <span class="pill seated">Seated</span>
         <span class="pill cov" style="cursor:pointer">&#9656; Watch the induction</span>
       </div>
-    </div><div class="card orgcard lite">
+    </div><div class="card orgcard">
       <div class="top">
         <span class="seatno">SEAT 04</span>
         <span class="onm"><a data-go="org-ma">School for Moral Ambition</a></span>
@@ -2297,7 +2295,7 @@ function render(){
   const noImg=seated.filter(({s})=>!IMGS[s]);
   const featHtml=withImg.map(({s,b,t})=>{
     const uri=IMGS[s];
-    return `<a class="ixfeat${t.full?'':' lite'}" data-go="${ORGPAGE[s]||b.k}"><div class="feat-bg tx-${b.k}" style="background-image:url(${uri});background-size:cover;background-position:center top"><div class="feat-top"><span class="feat-chip">${b.n}</span><span class="feat-num">${String(s).padStart(2,'0')}</span></div><div class="feat-body">${t.line?`<div class="feat-line">${t.line}</div>`:''}</div></div></a>`;
+    return `<a class="ixfeat" data-go="${ORGPAGE[s]||b.k}"><div class="feat-bg tx-${b.k}" style="background-image:url(${uri});background-size:cover;background-position:center top"><div class="feat-top"><span class="feat-chip">${b.n}</span><span class="feat-num">${String(s).padStart(2,'0')}</span></div><div class="feat-body">${t.line?`<div class="feat-line">${t.line}</div>`:''}</div></div></a>`;
   }).join('');
   const showAll=expanded||active!=='all';
   const vis=showAll?pending:pending.slice(0,18);
