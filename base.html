@@ -56,20 +56,10 @@ a{color:inherit;text-decoration:none}
 .tx-helena::after{opacity:.85}
 .tx-helena .wm{font-weight:600;letter-spacing:.10em;text-transform:uppercase}
 
-/* Emerson recreation: steel panel wall, rust roofline, red beam */
-.tx-emerson{background-image:
-  linear-gradient(180deg,#6d4a33 0%,#7d5a3e 9%,#4a3527 13%,transparent 16%),
-  linear-gradient(180deg,transparent 15%,rgba(160,52,44,.85) 16.5%,rgba(120,38,32,.85) 19%,transparent 20.5%),
-  repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 2px,transparent 2px 96px),
-  repeating-linear-gradient(180deg,rgba(255,255,255,.04) 0 2px,transparent 2px 110px),
-  radial-gradient(120% 90% at 50% 30%,#5a6b7c 0%,#46586a 40%,#2b3a49 75%,#1a2733 100%)}
-.tx-emerson::after{opacity:.7}
 
-
-/* real photography covers (Emerson, Helena) */
+/* real photography covers (Helena) */
 .photo::after{opacity:.18}
 .photo .wm{text-shadow:0 2px 24px rgba(0,0,0,.45)}
-.tx-emerson-photo{background-image:url("/img/hero-emerson.webp")}
 .tx-helena-photo{background-image:url("/img/hero-helena.webp")}
 
 /* ---------- nav ---------- */
@@ -209,6 +199,7 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .ixgrid-small{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:7px}
 
 .tx-stripe-photo{background-image:url("/img/badge-02-stripe.webp");background-size:cover;background-position:center top}
+.tx-ma-photo{background-image:url("/img/badge-03-ma.webp");background-size:cover;background-position:center top}
 
 /* ---- two-level nav ---- */
 .probs-btn.open{color:#0d1b2a}
@@ -646,7 +637,7 @@ body.notes .note{display:block}
   <h1>The top 99 teams fixing society's hardest problems</h1>
   <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
-    <div class="hm"><div class="n">9<span>/99</span></div><div class="l">Indexed</div></div>
+    <div class="hm"><div class="n">5<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
   </div>
 </div></header>
@@ -669,12 +660,12 @@ body.notes .note{display:block}
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">A new, durable brand of corporate social responsibility.</span></div>
     </a>
-    <a class="drop" data-go="org-emerson">
-      <div class="cover photo tx-emerson-photo">
-        <div class="seat">Seat 09 · Method</div>
+    <a class="drop" data-go="org-ma">
+      <div class="cover photo tx-ma-photo">
+        <div class="seat">Seat 03 · Method</div>
         <div class="wm"></div>
       </div>
-      <div class="dropmeta"><span class="b">Seated</span><span class="r">A new take on philanthropy, built as a full-stack operating institution.</span></div>
+      <div class="dropmeta"><span class="b">Seated</span></div>
     </a>
   </div>
 </div></section>
@@ -687,8 +678,8 @@ body.notes .note{display:block}
     <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>3 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>4 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>3 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
   </div>
 </div></section>
 
@@ -1112,7 +1103,7 @@ body.notes .note{display:block}
       <h1>Information</h1>
       <div class="subline">Media trust is at a Gallup all-time low. Social platforms and mainstream outlets alike are built to reward engagement over truth.</div>
       <div class="prob-meta">
-        <div><b>3</b> indexed</div>
+        <div><b>1</b> indexed</div>
         <div><b>4</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -1203,7 +1194,7 @@ body.notes .note{display:block}
       <h1>Method</h1>
       <div class="subline">Our institutions were built for a different century. The teams in this arena are building the replacements.</div>
       <div class="prob-meta">
-        <div><b>4</b> indexed</div>
+        <div><b>3</b> indexed</div>
         <div><b>3</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 &middot; September 2026</div>
@@ -1295,17 +1286,6 @@ body.notes .note{display:block}
         <span class="seatno">SEAT 03</span>
         <span class="onm"><a data-go="org-ma">School for Moral Ambition</a></span>
       </div>
-    </div><div class="card orgcard">
-      <div class="top">
-        <span class="seatno">SEAT 09</span>
-        <span class="onm"><a data-go="org-emerson">Emerson Collective</a></span>
-      </div>
-      <div class="oline">Grants, venture equity, outright ownership and political advocacy on one balance sheet, plus organizations it staffs itself.</div>
-      <div class="obot">
-        <span class="pill type">LLC</span>
-        <span class="pill seated">Seated</span>
-        <span class="pill cov" style="cursor:pointer">&#9656; Watch the induction</span>
-      </div>
     </div></div>
   </div>
 
@@ -1317,45 +1297,7 @@ body.notes .note{display:block}
 </section>
 
 <!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 08 · ELEMENTAL IMPACT -->
-<!-- ============================================================ -->
-<section class="view" id="v-org-elemental">
-
-  <span class="orgback" data-go="index">&larr; The row99</span>
-
-  <div class="org-header">
-    <div class="cover tx-climate org-cover-strip">
-      <div class="seat-badge">
-        <span class="b1">Seat</span>
-        <span class="b2">08</span>
-      </div>
-      <div class="org-name-block">
-        <h1>Elemental Impact</h1>
-        <div class="chline">Arena 02 &middot; <a data-go="climate">Climate</a></div>
-      </div>
-    </div>
-    <div class="org-info-bar">
-      <div class="org-note">Write-up and explainer in production.</div>
-    </div>
-  </div>
-
-  <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-08-elemental.webp)"></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card obcard">
-        <h4>Lines they work</h4>
-        <div class="linechips">
-          <div class="linechip" data-line="Clean energy gets built">Clean energy gets built</div>
-          <div class="linechip" data-line="Money stops being the obstacle">Money stops being the obstacle</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 07 · DATA.ORG -->
+<!-- TEAM PAGE · SEAT 05 · DATA.ORG -->
 <!-- ============================================================ -->
 <section class="view" id="v-org-data_org">
 
@@ -1365,7 +1307,7 @@ body.notes .note{display:block}
     <div class="cover tx-democracy org-cover-strip">
       <div class="seat-badge">
         <span class="b1">Seat</span>
-        <span class="b2">07</span>
+        <span class="b2">05</span>
       </div>
       <div class="org-name-block">
         <h1>data.org</h1>
@@ -1378,7 +1320,7 @@ body.notes .note{display:block}
   </div>
 
   <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-07-data-org.webp)"></div>
+    <div class="org-badge" style="background-image:url(/img/badge-05-data-org.webp)"></div>
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Lines they work</h4>
@@ -1422,217 +1364,6 @@ body.notes .note{display:block}
         <div class="linechips">
           <div class="linechip" data-line="Platforms pay for harmful design">Platforms pay for harmful design</div>
           <div class="linechip" data-line="Platforms take responsibility for what they amplify">Platforms take responsibility for what they amplify</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 06 · PROJECT LIBERTY -->
-<!-- ============================================================ -->
-<section class="view" id="v-org-liberty">
-
-  <span class="orgback" data-go="index">&larr; The row99</span>
-
-  <div class="org-header">
-    <div class="cover tx-information org-cover-strip">
-      <div class="seat-badge">
-        <span class="b1">Seat</span>
-        <span class="b2">06</span>
-      </div>
-      <div class="org-name-block">
-        <h1>Project Liberty</h1>
-        <div class="chline">Arena 05 &middot; <a data-go="information">Information</a></div>
-      </div>
-    </div>
-    <div class="org-info-bar">
-      <div class="org-note">Write-up and explainer in production.</div>
-    </div>
-  </div>
-
-  <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-06-liberty.webp)"></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card obcard">
-        <h4>Lines they work</h4>
-        <div class="linechips">
-          <div class="linechip" data-line="New institutions get built when the old ones stall">New institutions get built when the old ones stall</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 05 · AXIOS -->
-<!-- ============================================================ -->
-<section class="view" id="v-org-axios">
-
-  <span class="orgback" data-go="index">&larr; The row99</span>
-
-  <div class="org-header">
-    <div class="cover tx-information org-cover-strip">
-      <div class="seat-badge">
-        <span class="b1">Seat</span>
-        <span class="b2">05</span>
-      </div>
-      <div class="org-name-block">
-        <h1>Axios</h1>
-        <div class="chline">Arena 05 &middot; <a data-go="information">Information</a></div>
-      </div>
-    </div>
-    <div class="org-info-bar">
-      <div class="org-note">Write-up and explainer in production.</div>
-    </div>
-  </div>
-
-  <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-05-axios.webp)"></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card obcard">
-        <h4>Lines they work</h4>
-        <div class="linechips">
-          <div class="linechip" data-line="Local journalism survives">Local journalism survives</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 09 · EMERSON COLLECTIVE -->
-<!-- ============================================================ -->
-<section class="view" id="v-org-emerson">
-
-  <span class="orgback" data-go="index">&larr; The row99</span>
-
-  <div class="org-header">
-    <div class="cover tx-method org-cover-strip">
-      <div class="seat-badge">
-        <span class="b1">Seat</span>
-        <span class="b2">09</span>
-      </div>
-      <div class="org-name-block">
-        <h1>Emerson Collective</h1>
-        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
-      </div>
-    </div>
-    <div class="org-info-bar">
-      <div class="org-lines">
-        <div class="org-one-line">A new take on philanthropy, built as a full-stack operating institution.</div>
-        <div class="org-hero">A flexible and durable structure that grants, invests and operates across the societal problem space.</div>
-      </div>
-      <div class="org-pills">
-        <span class="pill type">LLC</span>
-        <span class="pill seated">Indexed</span>
-      </div>
-    </div>
-  </div>
-
-  <div class="org-body">
-    <div class="vid" style="background-image:url(/img/badge-09-emerson.webp)">
-      <div class="pwrap">
-        <div class="pcircle"></div>
-        <div class="vlabel">The induction &middot; 90s</div>
-      </div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card obcard">
-        <h4>Why the seat</h4>
-        <p>Billionaires have come under fire lately, and I get the argument. Emerson is on this list because it's one of the best examples I've found of a high-net-worth person choosing to work these problems at a different altitude. The traditional playbook is a private foundation: stock goes in, they get the tax deduction, and a small percentage of the money is actually deployed to solution work. I can't knock that path entirely, but my sense is it moves too slowly to meet the moment we're in.</p>
-        <p>Laurene Powell Jobs built Emerson to deploy. It's an LLC with a nonprofit arm, so it can grant, invest, own, run, and advocate, and it picks whichever one moves the problem fastest. The bigger difference, though, is the operating posture. Most philanthropy strokes the check and steps back. Emerson often builds the thing, then puts an operator inside it to run it and keeps them on the hook for whether it works. Speed and impact over the long, safe drip. It's the model I'd point any new fortune at.</p>
-      </div>
-      <div class="card obcard">
-        <h4>Lines they work</h4>
-        <div class="linechips">
-          <div class="linechip" data-line="Money stops being the obstacle">Money stops being the obstacle</div>
-          <div class="linechip" data-line="New institutions get built when the old ones stall">New institutions get built when the old ones stall</div>
-        </div>
-      </div>
-      <div class="card obcard">
-        <h4>Role</h4>
-        <p style="font-size:14.5px"><b>Full-Stack Funder.</b> Holds grants, equity, outright ownership and political advocacy on a single balance sheet, then picks the instrument a problem actually needs instead of the one a charter permits.</p>
-      </div>
-      <div class="card obcard">
-        <h4>The work</h4>
-        <div class="receipt">
-          <span class="rdate">Aug 2026</span>
-          Chicago CRED holds its tenth annual graduation ceremony; 91 participants receive high school diplomas.
-          <div class="srcline"><a href="https://www.chicagocred.org/" target="_blank" rel="noopener">chicagocred.org</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Dec 2025</span>
-          The American Cancer Society updates its screening guidelines to include at-home cervical cancer self-testing, opening the door to wider use of Teal Health's FDA-approved Teal Wand — an Emerson portfolio company.
-          <div class="srcline"><a href="https://www.emersoncollective.com/articles/2025-year-end-letter" target="_blank" rel="noopener">Emerson's 2025 Year-End Letter</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">2025</span>
-          Partners with Maryland READS to place trained literacy coaches in Prince George's County classrooms, modeled on Mississippi's decade-long turnaround from near-bottom to top-tier state reading scores.
-          <div class="srcline"><a href="https://www.emersoncollective.com/articles/2025-year-end-letter" target="_blank" rel="noopener">Emerson's 2025 Year-End Letter</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">2025</span>
-          Runs its 9th annual Demo Day; Powell Jobs hosts on-stage conversations with Sam Altman and Jony Ive, and separately Robert De Niro and JR, alongside live demos from Chai Discovery, Teal Health and Antora Energy.
-          <div class="srcline"><a href="https://www.emersoncollective.com/events/demo-day/demo-day-2025" target="_blank" rel="noopener">emersoncollective.com — Demo Day 2025</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Mar 2024</span>
-          <b>The Atlantic</b>, majority-owned by Emerson since 2017, announces it has passed one million paid subscriptions and reached profitability, revenue near $100M and up 10% year over year.
-          <div class="srcline"><a href="https://www.niemanlab.org/2024/03/the-atlantic-tops-1-million-subscriptions/" target="_blank" rel="noopener">Nieman Lab</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Nov 2023</span>
-          A peer-reviewed Northwestern University study (Andrew Papachristos, PNAS) finds <b>Chicago CRED</b> program completers had a 73% lower rate of violent-crime arrest over the following two years, versus a matched comparison group of 2,500 men arrested in the same neighborhoods.
-          <div class="srcline"><a href="https://news.northwestern.edu/stories/2023/11/chicago-community-violence-intervention-program-shown-to-reduce-gun-violence/" target="_blank" rel="noopener">Northwestern Now</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Aug 2022</span>
-          Jared Blumenfeld, former head of CalEPA, is named first president of <b>Waverley Street Foundation</b>, tasked with deploying $3.5B in climate grants by 2035 — the deductible, disclosed foundation Powell Jobs built outside the Emerson LLC to hold that money.
-          <div class="srcline"><a href="https://www.philanthropy.com/news/laurene-powell-jobss-waverley-street-foundation-taps-first-president-to-oversee-3-5-billion-in-climate-change-grants/" target="_blank" rel="noopener">Chronicle of Philanthropy</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Aug 2022</span>
-          <b>Axios</b>, an Emerson equity position since 2016, is sold to Cox Enterprises for $525M cash.
-          <div class="srcline"><a href="https://www.axios.com/2022/08/08/axios-agrees-to-sell-to-cox-enterprises-for-525-million" target="_blank" rel="noopener">Axios</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Sept 2021</span>
-          Powell Jobs announces a $3.5 billion, ten-year climate pledge — later capitalized as the Waverley Street Foundation.
-          <div class="srcline"><a href="https://www.axios.com/2021/09/27/laurene-powell-jobs-climate-change-group" target="_blank" rel="noopener">Axios</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">2018</span>
-          <b>E Pluribus Unum</b> launches under Mitch Landrieu with a report on race and class in the American South.
-          <div class="srcline"><a href="https://www.unumfund.org/about" target="_blank" rel="noopener">unumfund.org</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Jul 2017</span>
-          Emerson acquires a roughly 70% majority stake in <b>The Atlantic</b> from David Bradley, with a path to full ownership over three to five years.
-          <div class="srcline"><a href="https://www.npr.org/2017/07/28/540006091/laurene-powell-jobs-to-buy-stake-in-the-atlantic" target="_blank" rel="noopener">NPR</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">Sept 2016</span>
-          Ten winning teams are named in the <b>XQ Super School Project</b>, splitting roughly $100 million to redesign U.S. high schools.
-          <div class="srcline"><a href="https://www.edweek.org" target="_blank" rel="noopener">Education Week</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">2015</span>
-          <b>XQ Institute</b> co-founded by Laurene Powell Jobs and Russlynn Ali.
-          <div class="srcline"><a href="https://xqsuperschool.org/about/" target="_blank" rel="noopener">xqsuperschool.org</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">2013</span>
-          Emerson commissions the short film <b>The Dream Is Now</b>, on DACA and immigration — its first major media-as-advocacy move, before it owned any media companies outright.
-          <div class="srcline"><a href="https://www.cjr.org/special_report/emerson-collective-media.php" target="_blank" rel="noopener">Columbia Journalism Review</a></div>
-        </div>
-        <div class="receipt">
-          <span class="rdate">1997</span>
-          Laurene Powell Jobs co-founds <b>College Track</b>, seven years before Emerson Collective exists — the clearest precursor to its institution-building instinct.
-          <div class="srcline"><a href="https://www.washingtonpost.com/lifestyle/style/the-quest-of-laurene-powell-jobs/2013/09/07/8fc1f8be-16fe-11e3-961c-f22d3aaf19ab_story.html" target="_blank" rel="noopener">Washington Post</a></div>
         </div>
       </div>
     </div>
@@ -2112,14 +1843,10 @@ const ROUTES = {
   ai:"/arenas/ai", climate:"/arenas/climate", democracy:"/arenas/democracy",
   culture:"/arenas/culture", information:"/arenas/information", method:"/arenas/method",
   "org-helena":"/helena",
-  "org-emerson":"/emerson-collective",
   "org-stripe":"/stripe",
   "org-ma":"/school-for-moral-ambition",
   "org-cht":"/center-for-humane-technology",
-  "org-axios":"/axios",
-  "org-liberty":"/project-liberty",
-  "org-data_org":"/data-org",
-  "org-elemental":"/elemental-impact"
+  "org-data_org":"/data-org"
 };
 const TITLES = {
   index:"row — the row99", arenas:"The arenas · row99", outcomes:"Outcomes · row99",
@@ -2227,17 +1954,13 @@ const BUCKETS=[
  {k:"information",n:"Information"},
  {k:"method",n:"Method"}
 ];
-/* seats run 1..99 in order of induction; each seated team carries its arena */
+/* seats run 1..99 in order of induction; each seated team carries its arena (b), plus any others it counts toward (also) */
 const SEATED={
  1:{n:"Helena",b:"method",full:true,line:"One-of-a-kind global problem-solving organization."},
- 2:{n:"Stripe Public Goods",b:"method",full:true,line:"A new, durable brand of corporate social responsibility."},
+ 2:{n:"Stripe Public Goods",b:"method",also:["climate"],full:true,line:"A new, durable brand of corporate social responsibility."},
  3:{n:"School for Moral Ambition",b:"method"},
  4:{n:"Center for Humane Tech",b:"information"},
- 5:{n:"Axios",b:"information"},
- 6:{n:"Project Liberty",b:"information"},
- 7:{n:"data.org",b:"democracy"},
- 8:{n:"Elemental",b:"climate"},
- 9:{n:"Emerson Collective",b:"method",full:true,line:"A new take on philanthropy, built as a full-stack operating institution."}
+ 5:{n:"data.org",b:"democracy"}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2245,22 +1968,14 @@ const ORGPAGE={
  2:"org-stripe",
  3:"org-ma",
  4:"org-cht",
- 5:"org-axios",
- 6:"org-liberty",
- 7:"org-data_org",
- 8:"org-elemental",
- 9:"org-emerson"
+ 5:"org-data_org"
 };
 const IMGS={
  1:"/img/badge-01-helena.webp",
  2:"/img/badge-02-stripe.webp",
  3:"/img/badge-03-ma.webp",
  4:"/img/badge-04-cht.webp",
- 5:"/img/badge-05-axios.webp",
- 6:"/img/badge-06-liberty.webp",
- 7:"/img/badge-07-data-org.webp",
- 8:"/img/badge-08-elemental.webp",
- 9:"/img/badge-09-emerson.webp"
+ 5:"/img/badge-05-data-org.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
@@ -2278,7 +1993,6 @@ document.getElementById("more").addEventListener("click",()=>{expanded=!expanded
 
 function bucketOf(seat){const t=SEATED[seat];return (t&&BUCKETS.find(b=>b.k===t.b))||null}
 function coverCls(s){
-  if(s===9)return'photo tx-emerson-photo';
   if(s===1)return'tx-helena';
   const b=bucketOf(s);return b?'tx-'+b.k:'tx-open';
 }
@@ -2287,7 +2001,7 @@ function render(){
   for(let s=1;s<=99;s++){
     const t=SEATED[s];
     const b=bucketOf(s);
-    if(t){ if(active==='all'||b.k===active) seated.push({s,b,t}); }
+    if(t){ if(active==='all'||b.k===active||(t.also||[]).includes(active)) seated.push({s,b,t}); }
     else if(active==='all'){ pending.push({s}); }
   }
   // Only orgs with badge images show in the featured grid
