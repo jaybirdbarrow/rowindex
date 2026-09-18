@@ -637,7 +637,7 @@ body.notes .note{display:block}
   <h1>The top 99 teams fixing society's hardest problems</h1>
   <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
-    <div class="hm"><div class="n">5<span>/99</span></div><div class="l">Indexed</div></div>
+    <div class="hm"><div class="n">6<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
   </div>
 </div></header>
@@ -676,7 +676,7 @@ body.notes .note{display:block}
   <div class="probgrid">
     <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>2 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>3 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
@@ -920,7 +920,7 @@ body.notes .note{display:block}
       <h1>Democracy</h1>
       <div class="subline">This arena boils down to defending what exists today and building something more resilient.</div>
       <div class="prob-meta">
-        <div><b>1</b> indexed</div>
+        <div><b>2</b> indexed</div>
         <div><b>4</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -1297,9 +1297,9 @@ body.notes .note{display:block}
 </section>
 
 <!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 05 · DATA.ORG -->
+<!-- TEAM PAGE · SEAT 05 · USAFACTS -->
 <!-- ============================================================ -->
-<section class="view" id="v-org-data_org">
+<section class="view" id="v-org-usafacts">
 
   <span class="orgback" data-go="index">&larr; The row99</span>
 
@@ -1310,7 +1310,7 @@ body.notes .note{display:block}
         <span class="b2">05</span>
       </div>
       <div class="org-name-block">
-        <h1>data.org</h1>
+        <h1>USAFacts</h1>
         <div class="chline">Arena 03 &middot; <a data-go="democracy">Democracy</a></div>
       </div>
     </div>
@@ -1320,12 +1320,49 @@ body.notes .note{display:block}
   </div>
 
   <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-05-data-org.webp)"></div>
+    <div class="org-badge" style="background-image:url(/img/badge-05-usafacts.webp)"></div>
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Lines they work</h4>
         <div class="linechips">
-          <div class="linechip" data-line="Talent finds the important work">Talent finds the important work</div>
+          <div class="linechip" data-line="People can tell what's real">People can tell what's real</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- TEAM PAGE · SEAT 06 · STANFORD DELIBERATIVE DEMOCRACY LAB -->
+<!-- ============================================================ -->
+<section class="view" id="v-org-ddl">
+
+  <span class="orgback" data-go="index">&larr; The row99</span>
+
+  <div class="org-header">
+    <div class="cover tx-democracy org-cover-strip">
+      <div class="seat-badge">
+        <span class="b1">Seat</span>
+        <span class="b2">06</span>
+      </div>
+      <div class="org-name-block">
+        <h1>Stanford Deliberative Democracy Lab</h1>
+        <div class="chline">Arena 03 &middot; <a data-go="democracy">Democracy</a></div>
+      </div>
+    </div>
+    <div class="org-info-bar">
+      <div class="org-note">Write-up and explainer in production.</div>
+    </div>
+  </div>
+
+  <div class="org-body">
+    <div class="org-badge" style="background-image:url(/img/badge-06-ddl.webp)"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card obcard">
+        <h4>Lines they work</h4>
+        <div class="linechips">
+          <div class="linechip" data-line="The social fabric gets patched">The social fabric gets patched</div>
         </div>
       </div>
     </div>
@@ -1846,7 +1883,8 @@ const ROUTES = {
   "org-stripe":"/stripe",
   "org-ma":"/school-for-moral-ambition",
   "org-cht":"/center-for-humane-technology",
-  "org-data_org":"/data-org"
+  "org-usafacts":"/usafacts",
+  "org-ddl":"/stanford-deliberative-democracy-lab"
 };
 const TITLES = {
   index:"row — the row99", arenas:"The arenas · row99", outcomes:"Outcomes · row99",
@@ -1960,7 +1998,8 @@ const SEATED={
  2:{n:"Stripe Public Goods",b:"method",also:["climate"],full:true,line:"A new, durable brand of corporate social responsibility."},
  3:{n:"School for Moral Ambition",b:"method"},
  4:{n:"Center for Humane Tech",b:"information"},
- 5:{n:"data.org",b:"democracy"}
+ 5:{n:"USAFacts",b:"democracy"},
+ 6:{n:"Stanford Deliberative Democracy Lab",b:"democracy"}
 };
 const NEXT={};
 const ORGPAGE={
@@ -1968,14 +2007,16 @@ const ORGPAGE={
  2:"org-stripe",
  3:"org-ma",
  4:"org-cht",
- 5:"org-data_org"
+ 5:"org-usafacts",
+ 6:"org-ddl"
 };
 const IMGS={
  1:"/img/badge-01-helena.webp",
  2:"/img/badge-02-stripe.webp",
  3:"/img/badge-03-ma.webp",
  4:"/img/badge-04-cht.webp",
- 5:"/img/badge-05-data-org.webp"
+ 5:"/img/badge-05-usafacts.webp",
+ 6:"/img/badge-06-ddl.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
