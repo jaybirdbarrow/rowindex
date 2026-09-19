@@ -1306,44 +1306,7 @@ body.notes .note{display:block}
 </section>
 
 <!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 05 · USAFACTS -->
-<!-- ============================================================ -->
-<section class="view" id="v-org-usafacts">
-
-  <span class="orgback" data-go="index">&larr; The row99</span>
-
-  <div class="org-header">
-    <div class="cover tx-democracy org-cover-strip">
-      <div class="seat-badge">
-        <span class="b1">Seat</span>
-        <span class="b2">05</span>
-      </div>
-      <div class="org-name-block">
-        <h1>USAFacts</h1>
-        <div class="chline">Arena 03 &middot; <a data-go="democracy">Democracy</a></div>
-      </div>
-    </div>
-    <div class="org-info-bar">
-      <div class="org-note">Write-up and explainer in production.</div>
-    </div>
-  </div>
-
-  <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-05-usafacts.webp)"></div>
-    <div style="display:flex;flex-direction:column;gap:10px">
-      <div class="card obcard">
-        <h4>Lines they work</h4>
-        <div class="linechips">
-          <div class="linechip" data-line="People can tell what's real">People can tell what's real</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</section>
-
-<!-- ============================================================ -->
-<!-- TEAM PAGE · SEAT 06 · STANFORD DELIBERATIVE DEMOCRACY LAB -->
+<!-- TEAM PAGE · SEAT 05 · STANFORD DELIBERATIVE DEMOCRACY LAB -->
 <!-- ============================================================ -->
 <section class="view" id="v-org-ddl">
 
@@ -1353,7 +1316,7 @@ body.notes .note{display:block}
     <div class="cover tx-democracy org-cover-strip">
       <div class="seat-badge">
         <span class="b1">Seat</span>
-        <span class="b2">06</span>
+        <span class="b2">05</span>
       </div>
       <div class="org-name-block">
         <h1>Stanford Deliberative Democracy Lab</h1>
@@ -1366,12 +1329,49 @@ body.notes .note{display:block}
   </div>
 
   <div class="org-body">
-    <div class="org-badge" style="background-image:url(/img/badge-06-ddl.webp)"></div>
+    <div class="org-badge" style="background-image:url(/img/badge-05-ddl.webp)"></div>
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
         <h4>Lines they work</h4>
         <div class="linechips">
           <div class="linechip" data-line="The social fabric gets patched">The social fabric gets patched</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<!-- TEAM PAGE · SEAT 06 · USAFACTS -->
+<!-- ============================================================ -->
+<section class="view" id="v-org-usafacts">
+
+  <span class="orgback" data-go="index">&larr; The row99</span>
+
+  <div class="org-header">
+    <div class="cover tx-democracy org-cover-strip">
+      <div class="seat-badge">
+        <span class="b1">Seat</span>
+        <span class="b2">06</span>
+      </div>
+      <div class="org-name-block">
+        <h1>USAFacts</h1>
+        <div class="chline">Arena 03 &middot; <a data-go="democracy">Democracy</a></div>
+      </div>
+    </div>
+    <div class="org-info-bar">
+      <div class="org-note">Write-up and explainer in production.</div>
+    </div>
+  </div>
+
+  <div class="org-body">
+    <div class="org-badge" style="background-image:url(/img/badge-06-usafacts.webp)"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div class="card obcard">
+        <h4>Lines they work</h4>
+        <div class="linechips">
+          <div class="linechip" data-line="People can tell what's real">People can tell what's real</div>
         </div>
       </div>
     </div>
@@ -1986,6 +1986,8 @@ function go(v, opts) {
   opts = opts || {};
   if (!document.getElementById("v-" + v)) v = "index";
 
+  // leaving a page stops its induction video and puts the poster back
+  stopVideos();
   document.querySelectorAll(".view").forEach(s => s.classList.remove("on"));
   const target = document.getElementById("v-" + v);
   target.classList.add("on");
@@ -2047,6 +2049,13 @@ window.addEventListener("popstate", e => {
   go(v, {push: false, y: e.state && e.state.y});
 });
 /* ---- induction videos: the poster turns into a player on tap ---- */
+function stopVideos() {
+  document.querySelectorAll(".vid.playing").forEach(box => {
+    const v = box.querySelector("video");
+    if (v) { v.pause(); v.removeAttribute("src"); v.load(); v.remove(); }
+    box.classList.remove("playing");
+  });
+}
 document.querySelectorAll(".vid[data-video]").forEach(box => {
   box.addEventListener("click", () => {
     if (box.classList.contains("playing")) return;
@@ -2071,8 +2080,8 @@ const SEATED={
  2:{n:"Stripe Public Goods",b:"climate",also:["method"],full:true,line:"A new, durable brand of corporate social responsibility."},
  3:{n:"School for Moral Ambition",b:"method",full:true,line:"Recruiting ambitious people to work on hard problems."},
  4:{n:"Center for Humane Tech",b:"information"},
- 5:{n:"USAFacts",b:"democracy"},
- 6:{n:"Stanford Deliberative Democracy Lab",b:"democracy",dark:true}
+ 5:{n:"Stanford Deliberative Democracy Lab",b:"democracy",dark:true},
+ 6:{n:"USAFacts",b:"democracy"}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2080,16 +2089,16 @@ const ORGPAGE={
  2:"org-stripe",
  3:"org-ma",
  4:"org-cht",
- 5:"org-usafacts",
- 6:"org-ddl"
+ 5:"org-ddl",
+ 6:"org-usafacts"
 };
 const IMGS={
  1:"/img/badge-01-helena.webp",
  2:"/img/badge-02-stripe.webp",
  3:"/img/badge-03-ma.webp",
  4:"/img/badge-04-cht.webp",
- 5:"/img/badge-05-usafacts.webp",
- 6:"/img/badge-06-ddl.webp"
+ 5:"/img/badge-05-ddl.webp",
+ 6:"/img/badge-06-usafacts.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
