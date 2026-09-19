@@ -192,6 +192,9 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .feat-top{display:flex;justify-content:space-between;align-items:flex-start;position:relative;z-index:1}
 .feat-chip{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.9);background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.22);border-radius:2px;padding:3px 8px}
 .feat-num{font-family:"Inter",sans-serif;font-size:10px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.4)}
+/* light badges: dark chip and seat number so they read on a white ground */
+.ixfeat.dark .feat-chip{color:rgba(13,27,42,.88);background:rgba(13,27,42,.07);border-color:rgba(13,27,42,.28)}
+.ixfeat.dark .feat-num{color:rgba(13,27,42,.5)}
 .feat-body{position:relative;z-index:1}
 .feat-name{font-family:var(--serif);font-size:23px;font-weight:700;color:#fff;line-height:1.1;margin-bottom:5px}
 .feat-line{font-family:"Inter",sans-serif;font-size:12.5px;color:rgba(255,255,255,.72);line-height:1.45}
@@ -655,7 +658,7 @@ body.notes .note{display:block}
     </a>
     <a class="drop" data-go="org-stripe">
       <div class="cover photo tx-stripe-photo">
-        <div class="seat">Seat 02 · Method</div>
+        <div class="seat">Seat 02 · Climate</div>
         <div class="wm"></div>
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">A new, durable brand of corporate social responsibility.</span></div>
@@ -665,7 +668,7 @@ body.notes .note{display:block}
         <div class="seat">Seat 03 · Method</div>
         <div class="wm"></div>
       </div>
-      <div class="dropmeta"><span class="b">Seated</span></div>
+      <div class="dropmeta"><span class="b">Seated</span><span class="r">A fellowship built to catch the readers of a bestselling book.</span></div>
     </a>
   </div>
 </div></section>
@@ -1542,14 +1545,14 @@ body.notes .note{display:block}
   <span class="orgback" data-go="index">&larr; The row99</span>
 
   <div class="org-header">
-    <div class="cover tx-method org-cover-strip">
+    <div class="cover tx-climate org-cover-strip">
       <div class="seat-badge">
         <span class="b1">Seat</span>
         <span class="b2">02</span>
       </div>
       <div class="org-name-block">
         <h1>Stripe</h1>
-        <div class="chline">Arena 06 &middot; <a data-go="method">Method</a></div>
+        <div class="chline">Arena 02 &middot; <a data-go="climate">Climate</a></div>
       </div>
     </div>
     <div class="org-info-bar">
@@ -1695,7 +1698,14 @@ body.notes .note{display:block}
       </div>
     </div>
     <div class="org-info-bar">
-      <div class="org-note">Write-up and explainer in production.</div>
+      <div class="org-lines">
+        <div class="org-one-line">A fellowship built to catch the readers of a bestselling book.</div>
+        <div class="org-hero">School for Moral Ambition pays people to leave prestigious careers and spend seven months embedded inside organizations working the problems the market doesn't reward.</div>
+      </div>
+      <div class="org-pills">
+        <span class="pill type">Nonprofit foundation</span>
+        <span class="pill seated">Indexed</span>
+      </div>
     </div>
   </div>
 
@@ -1703,9 +1713,61 @@ body.notes .note{display:block}
     <div class="org-badge" style="background-image:url(/img/badge-03-ma.webp)"></div>
     <div style="display:flex;flex-direction:column;gap:10px">
       <div class="card obcard">
+        <h4>Why the seat</h4>
+        <p>Bregman's argument starts with the math: a career is something like two thousand workweeks, and most of us never really choose how we spend them. We inherit a narrow menu of what ambition looks like, and it pulls talented people toward the same few destinations. Then he built something to change that. In 2024 he opened a paid, seven-month fellowship: keep an income, spend a month training, then spend six months embedded inside an organization already working a neglected problem. Every dollar of his own book royalties is legally committed to funding it.</p>
+        <p>Two years in, that's 38 fellows placed inside 30 host organizations, drawn from 1,403 applications. Underneath it sits a wider net: more than 20,000 people across 140 countries have joined the community, and 1,400 of them are working through Circles, a shorter version of the same exercise run in small peer groups. Prestigious careers already come with recruiting pipelines and a clear next step. Bregman is building that same infrastructure around the problems nobody's paying people to work on.</p>
+      </div>
+      <div class="card obcard">
         <h4>Lines they work</h4>
         <div class="linechips">
           <div class="linechip" data-line="Talent finds the important work">Talent finds the important work</div>
+        </div>
+      </div>
+      <div class="card obcard">
+        <h4>Role</h4>
+        <p style="font-size:14.5px"><b>Talent Bridge.</b> Pays the gap between what a host organization can offer and what a lawyer, banker or consultant currently earns, so leaving a prestigious career for a neglected problem stops being a pure pay cut.</p>
+      </div>
+      <div class="card obcard">
+        <h4>The work</h4>
+        <div class="receipt">
+          <span class="rdate">Nov 2025</span>
+          Bregman delivers the first of his 2025 BBC Reith Lectures, "A Time of Monsters," under the series title "Moral Revolution" — a mainstream broadcast platform SMA doesn't otherwise have direct access to.
+          <div class="srcline"><a href="https://www.abc.net.au/listen/programs/bigideas/moral-revolution-rutger-bregman-bbc-reith-lecture-1/106323306" target="_blank" rel="noopener">ABC, rebroadcasting BBC Radio 4</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">Sept 2025</span>
+          Erin Roman, an SMA fellow, is appointed Director of Smoke Free Partnership, as SMA's second cohort begins its six-month placement phase.
+          <div class="srcline"><a href="https://www.moralambition.org/stories/impact-report" target="_blank" rel="noopener">SMA 2025 Impact Report</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">Jun 2025</span>
+          SMA convenes 200-plus business leaders in Amsterdam for "Profit for Good," its first move toward embedding moral ambition inside for-profit companies rather than only NGO placements.
+          <div class="srcline"><a href="https://www.moralambition.org/impact-report" target="_blank" rel="noopener">moralambition.org</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">Apr 2025</span>
+          <b>Moral Ambition</b> publishes, tops the Dutch bestseller list, and eventually sells in 27 languages. 100% of Bregman's earnings from it — advance plus speaking fees — are legally committed to funding SMA; cumulative royalties invested to date total €1.41M.
+          <div class="srcline"><a href="https://jacobin.com/2025/04/bregman-moral-ambition-wealth-entrepreneurship" target="_blank" rel="noopener">Jacobin</a> · <a href="https://www.moralambition.org/support-us/funding-transparency" target="_blank" rel="noopener">moralambition.org — funding transparency</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">2024</span>
+          Fellows Katrien Martens and Marin Vandamme found the Protein Project during their fellowship; it secures independent funding and becomes a host organization for later fellows.
+          <div class="srcline"><a href="https://www.moralambition.org/impact-report" target="_blank" rel="noopener">SMA 2025 Impact Report</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">Sept 2024</span>
+          SMA names its inaugural cohort: 22 fellows, 12 in Food Transition and 10 in Tobacco Control, placed inside host organizations including the WHO, Smoke Free Partnership, Good Food Institute Europe, BirdLife Europe and the European Policy Centre.
+          <div class="srcline"><a href="https://www.moralambition.org/stories/meet-the-inaugural-cohort-of-the-moral-ambition-fellowships" target="_blank" rel="noopener">moralambition.org</a></div>
+        </div>
+        <div class="receipt">
+          <span class="rdate">2024–26</span>
+          Cumulative: 1,403 applications, 38 fellows placed inside 30 host organizations — roughly a 3% acceptance rate.
+          <div class="srcline"><a href="https://www.moralambition.org/about-us" target="_blank" rel="noopener">moralambition.org</a></div>
+        </div>
+        <div class="receipt" style="margin-bottom:0">
+          <span class="rdate">2024–26</span>
+          Alongside the fellowship, more than 20,000 people across 140-plus countries have joined SMA's community. 1,400-plus of them are active in Circles, its six-to-eight person peer groups, and SMA attributes 22 verified career changes directly to that program.
+          <div class="srcline"><a href="https://www.moralambition.org" target="_blank" rel="noopener">moralambition.org</a></div>
         </div>
       </div>
     </div>
@@ -1992,14 +2054,14 @@ const BUCKETS=[
  {k:"information",n:"Information"},
  {k:"method",n:"Method"}
 ];
-/* seats run 1..99 in order of induction; each seated team carries its arena (b), plus any others it counts toward (also) */
+/* seats run 1..99 in order of induction; each seated team carries its arena (b), plus any others it counts toward (also); chip overrides the arena named on the badge, dark flips the badge chrome for light art */
 const SEATED={
- 1:{n:"Helena",b:"method",full:true,line:"One-of-a-kind global problem-solving organization."},
- 2:{n:"Stripe Public Goods",b:"method",also:["climate"],full:true,line:"A new, durable brand of corporate social responsibility."},
- 3:{n:"School for Moral Ambition",b:"method"},
+ 1:{n:"Helena",b:"method",dark:true,full:true,line:"One-of-a-kind global problem-solving organization."},
+ 2:{n:"Stripe Public Goods",b:"climate",also:["method"],full:true,line:"A new, durable brand of corporate social responsibility."},
+ 3:{n:"School for Moral Ambition",b:"method",full:true,line:"A fellowship built to catch the readers of a bestselling book."},
  4:{n:"Center for Humane Tech",b:"information"},
  5:{n:"USAFacts",b:"democracy"},
- 6:{n:"Stanford Deliberative Democracy Lab",b:"democracy"}
+ 6:{n:"Stanford Deliberative Democracy Lab",b:"democracy",dark:true}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2050,7 +2112,8 @@ function render(){
   const noImg=seated.filter(({s})=>!IMGS[s]);
   const featHtml=withImg.map(({s,b,t})=>{
     const uri=IMGS[s];
-    return `<a class="ixfeat" data-go="${ORGPAGE[s]||b.k}"><div class="feat-bg tx-${b.k}" style="background-image:url(${uri});background-size:cover;background-position:center top"><div class="feat-top"><span class="feat-chip">${b.n}</span><span class="feat-num">${String(s).padStart(2,'0')}</span></div><div class="feat-body">${t.line?`<div class="feat-line">${t.line}</div>`:''}</div></div></a>`;
+    const cb=BUCKETS.find(x=>x.k===t.chip)||b;
+    return `<a class="ixfeat${t.dark?' dark':''}" data-go="${ORGPAGE[s]||b.k}"><div class="feat-bg tx-${b.k}" style="background-image:url(${uri});background-size:cover;background-position:center top"><div class="feat-top"><span class="feat-chip">${cb.n}</span><span class="feat-num">${String(s).padStart(2,'0')}</span></div><div class="feat-body">${t.line?`<div class="feat-line">${t.line}</div>`:''}</div></div></a>`;
   }).join('');
   const showAll=expanded||active!=='all';
   const vis=showAll?pending:pending.slice(0,18);
