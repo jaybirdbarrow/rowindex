@@ -208,6 +208,21 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .tx-usafacts-photo{background-image:url("/img/badge-06-usafacts.webp");background-size:cover;background-position:center top}
 .tx-x-photo{background-image:url("/img/badge-07-x.webp");background-size:cover;background-position:center top}
 
+/* ---- tap feedback (touch screens): shockwave from the finger, sheen, press-bounce ---- */
+.tapfx{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
+.tapfx i{position:absolute;left:var(--x);top:var(--y);border-radius:50%;transform:translate(-50%,-50%)}
+.tapfx .tf-dot{width:46px;height:46px;background:radial-gradient(circle,#fff 0 28%,rgba(255,255,255,.6) 42%,rgba(120,180,255,0) 70%);animation:tfDot .65s ease-out forwards}
+.tapfx .tf-ring{width:18px;height:18px;border:2.5px solid #fff;box-shadow:0 0 18px rgba(120,180,255,.95),inset 0 0 12px rgba(120,180,255,.6);animation:tfRing .8s cubic-bezier(.2,.6,.3,1) forwards}
+.tapfx .tf-ring.r2{border-color:rgba(150,200,255,.9);opacity:0;animation-delay:.1s}
+.tapfx .tf-sheen{left:0;top:0;width:55%;height:100%;border-radius:0;transform:translateX(-130%) skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:tfSheen .6s .04s ease-out forwards}
+.tf-pop{animation:tfPop .42s cubic-bezier(.3,1.5,.5,1)}
+.tf-glow{animation:tfGlow .6s ease-out}
+@keyframes tfDot{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}45%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
+@keyframes tfRing{0%{width:18px;height:18px;opacity:1}55%{opacity:.95}100%{width:380px;height:380px;opacity:0;border-width:1px}}
+@keyframes tfSheen{to{transform:translateX(280%) skewX(-18deg)}}
+@keyframes tfPop{0%{transform:scale(1)}30%{transform:scale(.955)}100%{transform:scale(1)}}
+@keyframes tfGlow{0%{box-shadow:0 0 0 0 rgba(120,180,255,0)}30%{box-shadow:0 0 0 3px rgba(150,200,255,.9),0 14px 44px rgba(60,130,255,.5)}100%{box-shadow:0 0 0 0 rgba(120,180,255,0)}}
+
 /* ---- two-level nav ---- */
 .probs-btn.open{color:#0d1b2a}
 .chapstrip{position:sticky;top:52px;z-index:190;background:rgba(251,252,253,.97);
@@ -2400,6 +2415,23 @@ function go(v, opts) {
   window.scrollTo({top: opts.y || 0});
 }
 
+/* ---- tap feedback: on touch screens badge taps show a shockwave, then navigate ---- */
+const TOUCH_UI = matchMedia("(hover: none)").matches;
+const TAP_CARDS = ".ixfeat,.drop,.probcard";
+function tapFx(el, e) {
+  const host = el.querySelector(".feat-bg,.cover") || el;
+  const r = host.getBoundingClientRect();
+  const x = (e && e.clientX ? e.clientX : r.left + r.width / 2) - r.left;
+  const y = (e && e.clientY ? e.clientY : r.top + r.height / 2) - r.top;
+  const fx = document.createElement("span");
+  fx.className = "tapfx";
+  fx.style.setProperty("--x", x + "px"); fx.style.setProperty("--y", y + "px");
+  fx.innerHTML = '<i class="tf-sheen"></i><i class="tf-ring"></i><i class="tf-ring r2"></i><i class="tf-dot"></i>';
+  host.appendChild(fx);
+  [[el, "tf-pop"], [host, "tf-glow"]].forEach(([n, c]) => { n.classList.remove(c); void n.offsetWidth; n.classList.add(c); });
+  setTimeout(() => { fx.remove(); el.classList.remove("tf-pop"); host.classList.remove("tf-glow"); }, 900);
+}
+
 document.addEventListener("click", e => {
   const t = e.target.closest("[data-go],[data-view]");
   if (!t) return;
@@ -2408,6 +2440,13 @@ document.addEventListener("click", e => {
   // let modifier clicks and middle clicks open a real new tab
   if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
   e.preventDefault();
+  if (TOUCH_UI && t.matches(TAP_CARDS)) {
+    if (t.dataset.tapping) return;
+    t.dataset.tapping = "1";
+    tapFx(t, e);
+    setTimeout(() => { delete t.dataset.tapping; go(v); }, 460);
+    return;
+  }
   go(v);
 });
 window.addEventListener("popstate", e => {
@@ -2424,8 +2463,9 @@ function stopVideos() {
   });
 }
 document.querySelectorAll(".vid[data-video]").forEach(box => {
-  box.addEventListener("click", () => {
+  box.addEventListener("click", e => {
     if (box.classList.contains("playing")) return;
+    if (TOUCH_UI) tapFx(box, e);
     const v = document.createElement("video");
     v.src = box.dataset.video; v.controls = true; v.playsInline = true; v.preload = "metadata";
     box.classList.add("playing"); box.appendChild(v);
