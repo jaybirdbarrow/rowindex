@@ -211,15 +211,15 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 /* ---- tap feedback (touch screens): shockwave from the finger, press-bounce ---- */
 .tapfx{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
 .tapfx i{position:absolute;left:var(--x);top:var(--y);border-radius:50%;transform:translate(-50%,-50%)}
-.tapfx .tf-dot{width:46px;height:46px;background:radial-gradient(circle,#fff 0 28%,rgba(255,255,255,.6) 42%,rgba(120,180,255,0) 70%);animation:tfDot .95s cubic-bezier(.25,.5,.35,1) forwards}
-.tapfx .tf-ring{width:18px;height:18px;border:2.5px solid #fff;box-shadow:0 0 18px rgba(120,180,255,.95),inset 0 0 12px rgba(120,180,255,.6);animation:tfRing 1.15s cubic-bezier(.25,.5,.35,1) forwards}
-.tapfx .tf-ring.r2{border-color:rgba(150,200,255,.9);opacity:0;animation-delay:.18s}
+.tapfx .tf-dot{width:36px;height:36px;background:radial-gradient(circle,rgba(255,255,255,.85) 0 26%,rgba(255,255,255,.35) 42%,rgba(255,255,255,0) 70%);animation:tfDot .95s cubic-bezier(.25,.5,.35,1) forwards}
+.tapfx .tf-ring{width:16px;height:16px;border:1.5px solid rgba(255,255,255,.8);box-shadow:0 0 8px rgba(120,180,255,.4);animation:tfRing 1.15s cubic-bezier(.25,.5,.35,1) forwards}
+.tapfx .tf-ring.r2{border-color:rgba(170,205,255,.55);box-shadow:none;opacity:0;animation-delay:.18s}
 .tf-pop{animation:tfPop .6s cubic-bezier(.3,1.4,.5,1)}
 .tf-glow{animation:tfGlow .9s ease-out}
-@keyframes tfDot{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}45%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
-@keyframes tfRing{0%{width:18px;height:18px;opacity:1}55%{opacity:.95}100%{width:380px;height:380px;opacity:0;border-width:1px}}
-@keyframes tfPop{0%{transform:scale(1)}30%{transform:scale(.955)}100%{transform:scale(1)}}
-@keyframes tfGlow{0%{box-shadow:0 0 0 0 rgba(120,180,255,0)}30%{box-shadow:0 0 0 3px rgba(150,200,255,.9),0 14px 44px rgba(60,130,255,.5)}100%{box-shadow:0 0 0 0 rgba(120,180,255,0)}}
+@keyframes tfDot{0%{transform:translate(-50%,-50%) scale(.5);opacity:.9}40%{opacity:.8}100%{transform:translate(-50%,-50%) scale(1.4);opacity:0}}
+@keyframes tfRing{0%{width:16px;height:16px;opacity:.85}50%{opacity:.6}100%{width:220px;height:220px;opacity:0;border-width:1px}}
+@keyframes tfPop{0%{transform:scale(1)}30%{transform:scale(.985)}100%{transform:scale(1)}}
+@keyframes tfGlow{0%{box-shadow:0 0 0 0 rgba(120,180,255,0)}30%{box-shadow:0 0 0 1.5px rgba(170,205,255,.5),0 10px 30px rgba(60,130,255,.18)}100%{box-shadow:0 0 0 0 rgba(120,180,255,0)}}
 
 /* ---- two-level nav ---- */
 .probs-btn.open{color:#0d1b2a}
