@@ -208,18 +208,16 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .tx-usafacts-photo{background-image:url("/img/badge-06-usafacts.webp");background-size:cover;background-position:center top}
 .tx-x-photo{background-image:url("/img/badge-07-x.webp");background-size:cover;background-position:center top}
 
-/* ---- tap feedback (touch screens): shockwave from the finger, sheen, press-bounce ---- */
+/* ---- tap feedback (touch screens): shockwave from the finger, press-bounce ---- */
 .tapfx{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
 .tapfx i{position:absolute;left:var(--x);top:var(--y);border-radius:50%;transform:translate(-50%,-50%)}
-.tapfx .tf-dot{width:46px;height:46px;background:radial-gradient(circle,#fff 0 28%,rgba(255,255,255,.6) 42%,rgba(120,180,255,0) 70%);animation:tfDot .65s ease-out forwards}
-.tapfx .tf-ring{width:18px;height:18px;border:2.5px solid #fff;box-shadow:0 0 18px rgba(120,180,255,.95),inset 0 0 12px rgba(120,180,255,.6);animation:tfRing .8s cubic-bezier(.2,.6,.3,1) forwards}
-.tapfx .tf-ring.r2{border-color:rgba(150,200,255,.9);opacity:0;animation-delay:.1s}
-.tapfx .tf-sheen{left:0;top:0;width:55%;height:100%;border-radius:0;transform:translateX(-130%) skewX(-18deg);background:linear-gradient(90deg,transparent,rgba(255,255,255,.5),transparent);animation:tfSheen .6s .04s ease-out forwards}
-.tf-pop{animation:tfPop .42s cubic-bezier(.3,1.5,.5,1)}
-.tf-glow{animation:tfGlow .6s ease-out}
+.tapfx .tf-dot{width:46px;height:46px;background:radial-gradient(circle,#fff 0 28%,rgba(255,255,255,.6) 42%,rgba(120,180,255,0) 70%);animation:tfDot .95s cubic-bezier(.25,.5,.35,1) forwards}
+.tapfx .tf-ring{width:18px;height:18px;border:2.5px solid #fff;box-shadow:0 0 18px rgba(120,180,255,.95),inset 0 0 12px rgba(120,180,255,.6);animation:tfRing 1.15s cubic-bezier(.25,.5,.35,1) forwards}
+.tapfx .tf-ring.r2{border-color:rgba(150,200,255,.9);opacity:0;animation-delay:.18s}
+.tf-pop{animation:tfPop .6s cubic-bezier(.3,1.4,.5,1)}
+.tf-glow{animation:tfGlow .9s ease-out}
 @keyframes tfDot{0%{transform:translate(-50%,-50%) scale(.4);opacity:1}45%{opacity:1}100%{transform:translate(-50%,-50%) scale(1.7);opacity:0}}
 @keyframes tfRing{0%{width:18px;height:18px;opacity:1}55%{opacity:.95}100%{width:380px;height:380px;opacity:0;border-width:1px}}
-@keyframes tfSheen{to{transform:translateX(280%) skewX(-18deg)}}
 @keyframes tfPop{0%{transform:scale(1)}30%{transform:scale(.955)}100%{transform:scale(1)}}
 @keyframes tfGlow{0%{box-shadow:0 0 0 0 rgba(120,180,255,0)}30%{box-shadow:0 0 0 3px rgba(150,200,255,.9),0 14px 44px rgba(60,130,255,.5)}100%{box-shadow:0 0 0 0 rgba(120,180,255,0)}}
 
@@ -2426,10 +2424,10 @@ function tapFx(el, e) {
   const fx = document.createElement("span");
   fx.className = "tapfx";
   fx.style.setProperty("--x", x + "px"); fx.style.setProperty("--y", y + "px");
-  fx.innerHTML = '<i class="tf-sheen"></i><i class="tf-ring"></i><i class="tf-ring r2"></i><i class="tf-dot"></i>';
+  fx.innerHTML = '<i class="tf-ring"></i><i class="tf-ring r2"></i><i class="tf-dot"></i>';
   host.appendChild(fx);
   [[el, "tf-pop"], [host, "tf-glow"]].forEach(([n, c]) => { n.classList.remove(c); void n.offsetWidth; n.classList.add(c); });
-  setTimeout(() => { fx.remove(); el.classList.remove("tf-pop"); host.classList.remove("tf-glow"); }, 900);
+  setTimeout(() => { fx.remove(); el.classList.remove("tf-pop"); host.classList.remove("tf-glow"); }, 1400);
 }
 
 document.addEventListener("click", e => {
@@ -2444,7 +2442,7 @@ document.addEventListener("click", e => {
     if (t.dataset.tapping) return;
     t.dataset.tapping = "1";
     tapFx(t, e);
-    setTimeout(() => { delete t.dataset.tapping; go(v); }, 460);
+    setTimeout(() => { delete t.dataset.tapping; go(v); }, 650);
     return;
   }
   go(v);
