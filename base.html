@@ -657,7 +657,7 @@ body.notes .note{display:block}
   <h1>The top 99 teams fixing society's hardest problems</h1>
   <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
-    <div class="hm"><div class="n">7<span>/99</span></div><div class="l">Indexed</div></div>
+    <div class="hm"><div class="n">8<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
   </div>
 </div></header>
@@ -695,7 +695,7 @@ body.notes .note{display:block}
   <div class="shead"><span class="micro">The arenas</span><h2>Six arenas</h2><a class="right" data-go="outcomes" style="cursor:pointer">All outcomes →</a></div>
   <div class="probgrid">
     <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>2 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>3 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>2 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
@@ -843,7 +843,7 @@ body.notes .note{display:block}
       <h1>Climate</h1>
       <div class="subline">Climate conversations can miss the energy trilemma: energy has to be clean, reliable, and affordable at the same time, and pushing hard on one often costs you the other two. That tension is what makes this work harder than it looks from the outside.</div>
       <div class="prob-meta">
-        <div><b>2</b> indexed</div>
+        <div><b>3</b> indexed</div>
         <div><b>5</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -948,6 +948,16 @@ body.notes .note{display:block}
       <div class="oline">Google's moonshot lab, where teams get a bonus for killing their own projects.</div>
       <div class="obot">
         <span class="pill type">Alphabet R&amp;D lab</span>
+        <span class="pill seated">Seated</span>
+      </div>
+    </div><div class="card orgcard">
+      <div class="top">
+        <span class="seatno">SEAT 08</span>
+        <span class="onm"><a data-go="org-heart">Heart Aerospace</a></span>
+      </div>
+      <div class="oline">Building a hybrid-electric regional airliner.</div>
+      <div class="obot">
+        <span class="pill type">Venture-backed startup</span>
         <span class="pill seated">Seated</span>
       </div>
     </div></div>
@@ -1696,6 +1706,37 @@ body.notes .note{display:block}
 </section>
 
 <!-- ============================================================ -->
+<!-- TEAM PAGE · SEAT 08 · HEART AEROSPACE -->
+<!-- ============================================================ -->
+<section class="view" id="v-org-heart">
+
+  <span class="orgback" data-go="index">&larr; The row99</span>
+
+  <div class="org-header">
+    <div class="cover tx-climate org-cover-strip">
+      <div class="seat-badge">
+        <span class="b1">Seat</span>
+        <span class="b2">08</span>
+      </div>
+      <div class="org-name-block">
+        <h1>Heart Aerospace</h1>
+        <div class="chline">Arena 02 &middot; <a data-go="climate">Climate</a></div>
+      </div>
+    </div>
+    <div class="org-info-bar">
+      <div class="org-note">Write-up and explainer in production.</div>
+    </div>
+  </div>
+
+  <div class="org-body">
+    <div class="org-badge" style="background-image:url(/img/badge-08-heart.webp)"></div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
 <!-- TEAM PAGE · SEAT 04 · CENTER FOR HUMANE TECHNOLOGY -->
 <!-- ============================================================ -->
 <section class="view" id="v-org-cht">
@@ -2337,6 +2378,7 @@ const ROUTES = {
   "org-cht":"/center-for-humane-technology",
   "org-usafacts":"/usafacts",
   "org-x":"/x-moonshot-factory",
+  "org-heart":"/heart-aerospace",
   "org-ddl":"/stanford-deliberative-democracy-lab"
 };
 const TITLES = {
@@ -2487,7 +2529,8 @@ const SEATED={
  4:{n:"Center for Humane Tech",b:"information"},
  5:{n:"Stanford Deliberative Democracy Lab",b:"democracy",dark:true},
  6:{n:"USAFacts",b:"democracy"},
- 7:{n:"X, The Moonshot Factory",b:"method",also:["climate"]}
+ 7:{n:"X, The Moonshot Factory",b:"method",also:["climate"]},
+ 8:{n:"Heart Aerospace",b:"climate"}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2497,7 +2540,8 @@ const ORGPAGE={
  4:"org-cht",
  5:"org-ddl",
  6:"org-usafacts",
- 7:"org-x"
+ 7:"org-x",
+ 8:"org-heart"
 };
 const IMGS={
  1:"/img/badge-01-helena.webp",
@@ -2506,7 +2550,8 @@ const IMGS={
  4:"/img/badge-04-cht.webp",
  5:"/img/badge-05-ddl.webp",
  6:"/img/badge-06-usafacts.webp",
- 7:"/img/badge-07-x.webp"
+ 7:"/img/badge-07-x.webp",
+ 8:"/img/badge-08-heart.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
