@@ -208,6 +208,7 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .tx-usafacts-photo{background-image:url("/img/badge-06-usafacts.webp");background-size:cover;background-position:center top}
 .tx-x-photo{background-image:url("/img/badge-07-x.webp");background-size:cover;background-position:center top}
 .tx-twelve-photo{background-image:url("/img/badge-09-twelve.webp");background-size:cover;background-position:center top}
+.tx-ted-photo{background-image:url("/img/badge-10-ted.webp");background-size:cover;background-position:center top}
 
 /* ---- tap feedback (touch screens): shockwave from the finger, press-bounce ---- */
 .tapfx{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
@@ -658,7 +659,7 @@ body.notes .note{display:block}
   <h1>The top 99 teams fixing society's hardest problems</h1>
   <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
-    <div class="hm"><div class="n">9<span>/99</span></div><div class="l">Indexed</div></div>
+    <div class="hm"><div class="n">10<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
   </div>
 </div></header>
@@ -667,13 +668,6 @@ body.notes .note{display:block}
 <section class="section" id="drops"><div class="wrap">
   <div class="shead"><span class="micro">Latest</span><h2>New to the list</h2><a class="right" href="#index">All 99 →</a></div>
   <div class="drops">
-    <a class="drop" data-go="org-usafacts">
-      <div class="cover photo tx-usafacts-photo">
-        <div class="seat">Seat 06 · Democracy</div>
-        <div class="wm"></div>
-      </div>
-      <div class="dropmeta"><span class="b">Seated</span><span class="r">Nonpartisan government data, in numbers anyone can check.</span></div>
-    </a>
     <a class="drop" data-go="org-x">
       <div class="cover photo tx-x-photo">
         <div class="seat">Seat 07 · Method</div>
@@ -688,6 +682,13 @@ body.notes .note{display:block}
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">The carbon transformation company.</span></div>
     </a>
+    <a class="drop" data-go="method">
+      <div class="cover photo tx-ted-photo">
+        <div class="seat">Seat 10 · Method</div>
+        <div class="wm"></div>
+      </div>
+      <div class="dropmeta"><span class="b">Seated</span><span class="r">Ideas worth spreading.</span></div>
+    </a>
   </div>
 </div></section>
 
@@ -700,7 +701,7 @@ body.notes .note{display:block}
     <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>2 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>4 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="method"><span class="cover tx-method"><span class="num">06</span><span><h3>Method<span>5 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
   </div>
 </div></section>
 
@@ -1325,7 +1326,7 @@ body.notes .note{display:block}
       <h1>Method</h1>
       <div class="subline">Our institutions were built for a different century. The teams in this arena are building the replacements.</div>
       <div class="prob-meta">
-        <div><b>4</b> indexed</div>
+        <div><b>5</b> indexed</div>
         <div><b>4</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 &middot; September 2026</div>
@@ -1441,6 +1442,16 @@ body.notes .note{display:block}
       <div class="oline">Google's moonshot lab, where teams get a bonus for killing their own projects.</div>
       <div class="obot">
         <span class="pill type">Alphabet R&amp;D lab</span>
+        <span class="pill seated">Seated</span>
+      </div>
+    </div><div class="card orgcard">
+      <div class="top">
+        <span class="seatno">SEAT 10</span>
+        <span class="onm">TED</span>
+      </div>
+      <div class="oline">Ideas worth spreading.</div>
+      <div class="obot">
+        <span class="pill type">Nonprofit</span>
         <span class="pill seated">Seated</span>
       </div>
     </div></div>
@@ -2648,7 +2659,8 @@ const SEATED={
  6:{n:"USAFacts",b:"democracy"},
  7:{n:"X, The Moonshot Factory",b:"method",also:["climate"]},
  8:{n:"Heart Aerospace",b:"climate"},
- 9:{n:"Twelve",b:"climate",dark:true}
+ 9:{n:"Twelve",b:"climate",dark:true},
+ 10:{n:"TED",b:"method"}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2671,7 +2683,8 @@ const IMGS={
  6:"/img/badge-06-usafacts.webp",
  7:"/img/badge-07-x.webp",
  8:"/img/badge-08-heart.webp",
- 9:"/img/badge-09-twelve.webp"
+ 9:"/img/badge-09-twelve.webp",
+ 10:"/img/badge-10-ted.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
