@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>row index intro</title>
+<link rel="icon" href="data:,">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;1,9..144,300;1,9..144,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  Series intro for the explainer videos. 6 seconds, 9:16.
+
+  Open the file, pick the featured team with ?seat=NN (defaults to the newest
+  seat), press space to play. Space or click replays. Screen record the stage.
+
+    intro.html?seat=8        feature Heart Aerospace
+    intro.html?t=4.5         freeze on one moment (for checking a frame)
+    intro.html?auto=1        play on load
+
+  The seats come from base.html via seats.js. After seating a team, run
+  python3 video/sync-seats.py (render-intro.sh does it for you).
+-->
+<style>
+:root{
+  --bg:#fbfcfd; --ink:#0d1b2a; --dim:#5b6b7a; --faint:#93a3b1;
+  --blue:#B8E2F2; --bluedeep:#3D8EC4; --hair:rgba(13,27,42,.14);
+  --serif:'Fraunces',Georgia,serif; --sans:'Inter','Helvetica Neue',system-ui,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;background:var(--bg);overflow:hidden}
+body{font-family:var(--sans);color:var(--ink);-webkit-font-smoothing:antialiased;cursor:none}
+body.idle{cursor:default}
+
+#stage{position:fixed;left:0;top:0;width:1080px;height:1920px;transform-origin:0 0;background:var(--bg);overflow:hidden}
+#cam{position:absolute;inset:0;transform-origin:540px 1100px}
+
+.head{position:absolute;left:60px;right:60px;top:84px;display:flex;align-items:center;justify-content:space-between}
+.head img{height:46px;display:block}
+.count{display:flex;align-items:baseline;gap:14px}
+.count .n{font-family:var(--serif);font-weight:300;font-size:64px;line-height:1;letter-spacing:-.01em;font-variant-numeric:tabular-nums}
+.count .n span{color:var(--faint)}
+.count .l{font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
+
+.micro{position:absolute;left:60px;top:226px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
+.micro b{color:var(--bluedeep);font-weight:600}
+.hook{position:absolute;left:56px;right:60px;top:268px;font-family:var(--serif);font-weight:300;font-size:92px;line-height:1.04;letter-spacing:-.015em}
+.hook .w{display:inline-block;will-change:transform,opacity}
+
+.tile{position:absolute;border-radius:5px;overflow:hidden;will-change:transform,opacity}
+.tile .open,.tile .badge{position:absolute;inset:0;background-size:cover;background-position:center top}
+.tile .open{background-image:radial-gradient(120% 90% at 30% 10%,#7d8c9a 0%,#3b4a58 50%,#141c25 100%)}
+.tile .open::after,.tile .grain{content:"";position:absolute;inset:0;opacity:.5;mix-blend-mode:overlay;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='240' height='240' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+.tile .sn{position:absolute;left:8px;bottom:7px;font-size:11px;font-weight:700;letter-spacing:.12em;color:rgba(255,255,255,.55);z-index:1}
+.tile .badge{opacity:0}
+.tile .ring{position:absolute;inset:0;border-radius:5px;pointer-events:none;box-shadow:inset 0 0 0 0 rgba(184,226,242,0)}
+.tile .chip{position:absolute;left:0;top:0;display:flex;justify-content:space-between;align-items:flex-start;width:100%;padding:34px 38px;opacity:0;z-index:2}
+.chip span:first-child{font-size:21px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.92);background:rgba(255,255,255,.16);border:2px solid rgba(255,255,255,.24);border-radius:3px;padding:7px 16px}
+.chip span:last-child{font-size:21px;font-weight:700;letter-spacing:.1em;color:rgba(255,255,255,.5)}
+.tile.dark .chip span:first-child{color:rgba(13,27,42,.88);background:rgba(13,27,42,.07);border-color:rgba(13,27,42,.28)}
+.tile.dark .chip span:last-child{color:rgba(13,27,42,.5)}
+.tile.feat{z-index:5;box-shadow:0 30px 80px rgba(13,27,42,0)}
+
+.cap{position:absolute;left:0;right:0;top:1572px;text-align:center;opacity:0}
+.cap .s{font-size:19px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--bluedeep)}
+.cap .nm{font-family:var(--serif);font-weight:300;font-size:64px;line-height:1.1;margin-top:12px}
+
+#hint{position:fixed;left:16px;bottom:14px;font:500 12px/1.4 var(--sans);color:var(--faint);letter-spacing:.04em}
+body.recording #hint{display:none}
+</style>
+</head>
+<body class="idle">
+<div id="stage"><div id="cam">
+  <div class="head">
+    <img src="../img/wordmark.png" alt="row">
+    <div class="count"><div class="n" id="n">0<span>/99</span></div><div class="l">Indexed</div></div>
+  </div>
+  <div class="micro">The row <b>index</b></div>
+  <div class="hook" id="hook"></div>
+  <div id="grid"></div>
+  <div class="cap" id="cap"><div class="s" id="capS"></div><div class="nm" id="capN"></div></div>
+</div></div>
+<div id="hint">space to play · ?seat=NN to feature a team</div>
+
+<script src="seats.js"></script>
+<script>
+const HOOK="The hunt for 99 teams fixing the world.";
+const DUR=6;
+
+const q=new URLSearchParams(location.search);
+const seatNums=Object.keys(SEATS).map(Number);
+const FEAT=SEATS[+q.get("seat")]?+q.get("seat"):Math.max(...seatNums);
+
+// ---- layout: 9 x 11 board under the hook ----
+const COLS=9,ROWS=11,GAP=10,TW=86,TH=TW*5/4;
+const GX=(1080-(COLS*TW+(COLS-1)*GAP))/2, GY=540;
+const BIG={w:700,h:875}; BIG.x=(1080-BIG.w)/2; BIG.y=650;
+
+const hook=document.getElementById("hook");
+hook.innerHTML=HOOK.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
+const words=[...hook.querySelectorAll(".w")];
+
+const grid=document.getElementById("grid");
+const tiles=[];
+for(let s=1;s<=99;s++){
+  const i=s-1,r=Math.floor(i/COLS),c=i%COLS;
+  const el=document.createElement("div");
+  const t=SEATS[s];
+  el.className="tile"+(t&&t.dark?" dark":"")+(s===FEAT?" feat":"");
+  el.innerHTML=`<div class="open"></div><div class="sn">${String(s).padStart(2,"0")}</div>`+
+    (t?`<div class="badge" style="background-image:url(${t.img})"></div><div class="grain"></div>`:"")+
+    `<div class="ring"></div>`+
+    (s===FEAT?`<div class="chip"><span>${t.a}</span><span>${String(s).padStart(2,"0")}</span></div>`:"");
+  grid.appendChild(el);
+  tiles.push({s,r,c,el,x:GX+c*(TW+GAP),y:GY+r*(TH+GAP),badge:el.querySelector(".badge"),ring:el.querySelector(".ring"),chip:el.querySelector(".chip"),grain:el.querySelector(".grain")});
+}
+tiles.forEach(t=>{t.el.style.left=t.x+"px";t.el.style.top=t.y+"px";t.el.style.width=TW+"px";t.el.style.height=TH+"px"});
+document.getElementById("capS").textContent=`Seat ${String(FEAT).padStart(2,"0")} · ${SEATS[FEAT].a}`;
+document.getElementById("capN").textContent=SEATS[FEAT].n;
+
+// badges land in seat order, the featured team last
+const order=seatNums.filter(s=>s!==FEAT).sort((a,b)=>a-b).concat(FEAT);
+const LAND={};
+order.forEach((s,k)=>{LAND[s]=k===order.length-1?3.05:1.35+k*(1.45/Math.max(1,order.length-2))});
+
+// ---- timing helpers ----
+const cl=(x,a=0,b=1)=>Math.min(b,Math.max(a,x));
+const p=(t,a,b)=>cl((t-a)/(b-a));
+const ease=x=>x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+const out=x=>1-Math.pow(1-x,3);
+const back=x=>{const c=1.6;return 1+(c+1)*Math.pow(x-1,3)+c*Math.pow(x-1,2)};
+const lerp=(a,b,k)=>a+(b-a)*k;
+
+const nEl=document.getElementById("n"),cap=document.getElementById("cap"),cam=document.getElementById("cam");
+let lastN=-1;
+
+function frame(t){
+  // hook, word by word
+  words.forEach((w,i)=>{const k=out(p(t,.12+i*.07,.62+i*.07));w.style.opacity=k;w.style.transform=`translateY(${(1-k)*34}px)`});
+
+  // the board: 99 open seats cascade in
+  const zoom=ease(p(t,3.45,4.35));
+  let filled=0;
+  for(const tl of tiles){
+    const a=.25+tl.r*.07+tl.c*.03, k=out(p(t,a,a+.5));
+    let o=k, sc=lerp(.86,1,k);
+    if(tl.badge){
+      const L=LAND[tl.s], lk=p(t,L,L+.32);
+      if(t>=L)filled++;
+      tl.badge.style.opacity=out(lk);
+      tl.grain.style.opacity=out(lk)*.5;
+      if(lk>0){sc*=lerp(1.32,1,back(lk))}
+      const fl=1-p(t,L,L+.6);
+      tl.ring.style.boxShadow=t>=L&&fl>0?`inset 0 0 0 ${3*fl}px rgba(184,226,242,${fl}), 0 0 ${30*fl}px rgba(61,142,196,${.7*fl})`:"none";
+      tl.ring.style.position="absolute";
+    }
+    if(tl.s===FEAT){
+      const w=lerp(TW,BIG.w,zoom),h=lerp(TH,BIG.h,zoom);
+      tl.el.style.left=lerp(tl.x,BIG.x,zoom)+"px";tl.el.style.top=lerp(tl.y,BIG.y,zoom)+"px";
+      tl.el.style.width=w+"px";tl.el.style.height=h+"px";
+      tl.el.style.borderRadius=lerp(5,8,zoom)+"px";
+      tl.el.style.boxShadow=`0 ${40*zoom}px ${110*zoom}px rgba(13,27,42,${.28*zoom})`;
+      tl.chip.style.opacity=ease(p(t,4.1,4.5));
+      tl.el.querySelector(".sn").style.opacity=1-zoom;
+    }else{
+      o*=lerp(1,.1,zoom);
+    }
+    tl.el.style.opacity=o;
+    tl.el.style.transform=`scale(${sc})`;
+  }
+
+  // counter ticks with each landing
+  if(filled!==lastN){nEl.innerHTML=`${filled}<span>/99</span>`;lastN=filled}
+
+  // caption under the featured badge, then a slow push to the end
+  const ck=out(p(t,4.3,4.8));
+  cap.style.opacity=ck;cap.style.transform=`translateY(${(1-ck)*24}px)`;
+  const push=1+.035*ease(p(t,4.2,DUR));
+  cam.style.transform=`scale(${push})`;
+}
+
+// ---- playback ----
+let t0=null,raf=null;
+function play(){
+  document.body.classList.add("recording");document.body.classList.remove("idle");
+  cancelAnimationFrame(raf);t0=null;
+  const step=now=>{if(t0===null)t0=now;const t=(now-t0)/1000;frame(Math.min(t,DUR));if(t<DUR)raf=requestAnimationFrame(step)};
+  raf=requestAnimationFrame(step);
+}
+function fit(){
+  const s=Math.min(innerWidth/1080,innerHeight/1920);
+  const x=(innerWidth-1080*s)/2,y=(innerHeight-1920*s)/2;
+  document.getElementById("stage").style.transform=`translate(${x}px,${y}px) scale(${s})`;
+}
+addEventListener("resize",fit);fit();
+addEventListener("keydown",e=>{if(e.code==="Space"){e.preventDefault();play()}if(e.key==="h")document.body.classList.toggle("recording")});
+addEventListener("click",play);
+
+const T=q.get("t");
+frame(T!==null?+T:0);
+if(T!==null)document.body.classList.add("recording");
+document.fonts.ready.then(()=>{if(q.get("auto")==="1")play()});
+</script>
+</body>
+</html>
