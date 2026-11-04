@@ -209,6 +209,7 @@ footer .fr{margin-left:auto;letter-spacing:.14em;text-transform:uppercase;font-s
 .tx-x-photo{background-image:url("/img/badge-07-x.webp");background-size:cover;background-position:center top}
 .tx-twelve-photo{background-image:url("/img/badge-09-twelve.webp");background-size:cover;background-position:center top}
 .tx-ted-photo{background-image:url("/img/badge-10-ted.webp");background-size:cover;background-position:center top}
+.tx-oxman-photo{background-image:url("/img/badge-11-oxman.webp");background-size:cover;background-position:center top}
 
 /* ---- tap feedback (touch screens): shockwave from the finger, press-bounce ---- */
 .tapfx{position:absolute;inset:0;pointer-events:none;z-index:6;overflow:hidden;border-radius:inherit}
@@ -659,7 +660,7 @@ body.notes .note{display:block}
   <h1>The top 99 teams fixing society's hardest problems</h1>
   <p class="sub">Your guide to the people and tech fixing the world.</p>
   <div class="herometa">
-    <div class="hm"><div class="n">10<span>/99</span></div><div class="l">Indexed</div></div>
+    <div class="hm"><div class="n">11<span>/99</span></div><div class="l">Indexed</div></div>
     <div class="dots" id="dots" title="The board: 99 seats, filled seats dark"></div>
   </div>
 </div></header>
@@ -668,13 +669,6 @@ body.notes .note{display:block}
 <section class="section" id="drops"><div class="wrap">
   <div class="shead"><span class="micro">Latest</span><h2>New to the list</h2><a class="right" href="#index">All 99 →</a></div>
   <div class="drops">
-    <a class="drop" data-go="org-x">
-      <div class="cover photo tx-x-photo">
-        <div class="seat">Seat 07 · Method</div>
-        <div class="wm"></div>
-      </div>
-      <div class="dropmeta"><span class="b">Seated</span><span class="r">Google's moonshot lab, where teams get a bonus for killing their own projects.</span></div>
-    </a>
     <a class="drop" data-go="org-twelve">
       <div class="cover photo tx-twelve-photo">
         <div class="seat dark">Seat 09 · Climate</div>
@@ -689,6 +683,13 @@ body.notes .note{display:block}
       </div>
       <div class="dropmeta"><span class="b">Seated</span><span class="r">Ideas worth spreading.</span></div>
     </a>
+    <a class="drop" data-go="climate">
+      <div class="cover photo tx-oxman-photo">
+        <div class="seat dark">Seat 11 · Climate</div>
+        <div class="wm"></div>
+      </div>
+      <div class="dropmeta"><span class="b">Seated</span><span class="r">Nature-centric design.</span></div>
+    </a>
   </div>
 </div></section>
 
@@ -697,7 +698,7 @@ body.notes .note{display:block}
   <div class="shead"><span class="micro">The arenas</span><h2>Six arenas</h2><a class="right" data-go="outcomes" style="cursor:pointer">All outcomes →</a></div>
   <div class="probgrid">
     <a class="probcard" data-go="ai"><span class="cover tx-ai"><span class="num">01</span><span><h3>AI<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
-    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>4 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
+    <a class="probcard" data-go="climate"><span class="cover tx-climate"><span class="num">02</span><span><h3>Climate<span>5 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="democracy"><span class="cover tx-democracy"><span class="num">03</span><span><h3>Democracy<span>2 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="culture"><span class="cover tx-culture"><span class="num">04</span><span><h3>Culture<span>0 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
     <a class="probcard" data-go="information"><span class="cover tx-information"><span class="num">05</span><span><h3>Information<span>1 indexed</span></h3><span class="cta">Snapshot →</span></span></span></a>
@@ -845,7 +846,7 @@ body.notes .note{display:block}
       <h1>Climate</h1>
       <div class="subline">Climate conversations can miss the energy trilemma: energy has to be clean, reliable, and affordable at the same time, and pushing hard on one often costs you the other two. That tension is what makes this work harder than it looks from the outside.</div>
       <div class="prob-meta">
-        <div><b>4</b> indexed</div>
+        <div><b>5</b> indexed</div>
         <div><b>6</b> outcome lines</div>
       </div>
       <div class="edition-badge">Edition 1 · September 2026</div>
@@ -980,6 +981,16 @@ body.notes .note{display:block}
       <div class="oline">The carbon transformation company.</div>
       <div class="obot">
         <span class="pill type">Venture-backed startup</span>
+        <span class="pill seated">Seated</span>
+      </div>
+    </div><div class="card orgcard">
+      <div class="top">
+        <span class="seatno">SEAT 11</span>
+        <span class="onm">Oxman</span>
+      </div>
+      <div class="oline">Nature-centric design.</div>
+      <div class="obot">
+        <span class="pill type">Design company</span>
         <span class="pill seated">Seated</span>
       </div>
     </div></div>
@@ -2660,7 +2671,8 @@ const SEATED={
  7:{n:"X, The Moonshot Factory",b:"method",also:["climate"]},
  8:{n:"Heart Aerospace",b:"climate"},
  9:{n:"Twelve",b:"climate",dark:true},
- 10:{n:"TED",b:"method"}
+ 10:{n:"TED",b:"method"},
+ 11:{n:"Oxman",b:"climate",dark:true}
 };
 const NEXT={};
 const ORGPAGE={
@@ -2684,7 +2696,8 @@ const IMGS={
  7:"/img/badge-07-x.webp",
  8:"/img/badge-08-heart.webp",
  9:"/img/badge-09-twelve.webp",
- 10:"/img/badge-10-ted.webp"
+ 10:"/img/badge-10-ted.webp",
+ 11:"/img/badge-11-oxman.webp"
 };
 
 document.getElementById("dots").innerHTML=Array.from({length:99},(_,i)=>`<i class="${SEATED[i+1]?'on':''}"></i>`).join("");
