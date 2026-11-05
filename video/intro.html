@@ -40,10 +40,6 @@ body.idle{cursor:default}
 .count .n span{color:var(--faint)}
 .count .l{font-size:15px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--dim)}
 
-.micro{position:absolute;left:60px;top:226px;font-size:17px;font-weight:600;letter-spacing:.24em;text-transform:uppercase;color:var(--dim)}
-.micro b{color:var(--bluedeep);font-weight:600}
-.hook{position:absolute;left:56px;right:60px;top:268px;font-family:var(--serif);font-weight:300;font-size:92px;line-height:1.04;letter-spacing:-.015em}
-.hook .w{display:inline-block;will-change:transform,opacity}
 
 .tile{position:absolute;border-radius:5px;overflow:hidden;will-change:transform,opacity}
 .tile .open,.tile .badge{position:absolute;inset:0;background-size:cover;background-position:center top}
@@ -60,7 +56,7 @@ body.idle{cursor:default}
 .tile.dark .chip span:last-child{color:rgba(13,27,42,.5)}
 .tile.feat{z-index:5;box-shadow:0 30px 80px rgba(13,27,42,0)}
 
-.cap{position:absolute;left:0;right:0;top:1572px;text-align:center;opacity:0}
+.cap{position:absolute;left:0;right:0;top:1622px;text-align:center;opacity:0}
 .cap .s{font-size:19px;font-weight:600;letter-spacing:.26em;text-transform:uppercase;color:var(--bluedeep)}
 .cap .nm{font-family:var(--serif);font-weight:300;font-size:64px;line-height:1.1;margin-top:12px}
 
@@ -74,8 +70,6 @@ body.recording #hint{display:none}
     <img src="../img/wordmark.png" alt="row">
     <div class="count"><div class="n" id="n">0<span>/99</span></div><div class="l">Indexed</div></div>
   </div>
-  <div class="micro">The row <b>index</b></div>
-  <div class="hook" id="hook"></div>
   <div id="grid"></div>
   <div class="cap" id="cap"><div class="s" id="capS"></div><div class="nm" id="capN"></div></div>
 </div></div>
@@ -83,21 +77,17 @@ body.recording #hint{display:none}
 
 <script src="seats.js"></script>
 <script>
-const HOOK="The hunt for 99 teams fixing the world.";
 const DUR=6;
 
 const q=new URLSearchParams(location.search);
 const seatNums=Object.keys(SEATS).map(Number);
 const FEAT=SEATS[+q.get("seat")]?+q.get("seat"):Math.max(...seatNums);
 
-// ---- layout: 9 x 11 board under the hook ----
-const COLS=9,ROWS=11,GAP=10,TW=86,TH=TW*5/4;
-const GX=(1080-(COLS*TW+(COLS-1)*GAP))/2, GY=540;
-const BIG={w:700,h:875}; BIG.x=(1080-BIG.w)/2; BIG.y=650;
+// ---- layout: 9 x 11 board, with the band above it left clear for a hook overlay ----
+const COLS=9,ROWS=11,GAP=10,TW=80,TH=TW*5/4;
+const GX=(1080-(COLS*TW+(COLS-1)*GAP))/2, GY=660;
+const BIG={w:700,h:875}; BIG.x=(1080-BIG.w)/2; BIG.y=700;
 
-const hook=document.getElementById("hook");
-hook.innerHTML=HOOK.split(" ").map(w=>`<span class="w">${w}</span>`).join(" ");
-const words=[...hook.querySelectorAll(".w")];
 
 const grid=document.getElementById("grid");
 const tiles=[];
@@ -134,9 +124,6 @@ const nEl=document.getElementById("n"),cap=document.getElementById("cap"),cam=do
 let lastN=-1;
 
 function frame(t){
-  // hook, word by word
-  words.forEach((w,i)=>{const k=out(p(t,.12+i*.07,.62+i*.07));w.style.opacity=k;w.style.transform=`translateY(${(1-k)*34}px)`});
-
   // the board: 99 open seats cascade in
   const zoom=ease(p(t,3.45,4.35));
   let filled=0;
