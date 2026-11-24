@@ -65,5 +65,17 @@ const SEATS={
   "a": "Climate",
   "dark": true,
   "img": "../img/badge-11-oxman.webp"
+ },
+ "12": {
+  "n": "Anthropic",
+  "a": "AI",
+  "dark": false,
+  "img": "../img/badge-12-anthropic.webp"
+ },
+ "13": {
+  "n": "Climate TRACE",
+  "a": "Climate",
+  "dark": true,
+  "img": "../img/badge-13-climate-trace.webp"
  }
 };
